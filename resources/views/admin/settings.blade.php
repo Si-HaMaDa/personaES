@@ -25,7 +25,13 @@
                 <div class="col-md-12">
                     {!! Form::open(['url'=>aurl('/settings'),'id'=>'settings','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
                     
-                    
+
+
+
+
+
+
+
                     
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item active">
@@ -44,18 +50,32 @@
                             <a class="nav-link" id="pills-course-tab" data-toggle="pill" href="#pills-course" role="tab" aria-controls="pills-course" aria-selected="false">Course</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-privacy-policy-tab" data-toggle="pill" href="#pills-privacy-policy" role="tab" aria-controls="pills-privacy-policy" aria-selected="false">privacy policy</a>
+                            <a class="nav-link" id="pills-privacy-policy-tab" data-toggle="pill" href="#pills-privacy-policy" role="tab" aria-controls="pills-privacy-policy" aria-selected="false">privacy&refund policy</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-register-tab" data-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-refund-policy-tab" data-toggle="pill" href="#pills-refund-policy" role="tab" aria-controls="pills-refund-policy" aria-selected="false">refund policy</a>
+                            <a class="nav-link" id="pills-experts-in-tab" data-toggle="pill" href="#pills-experts-in" role="tab" aria-controls="pills-experts-in" aria-selected="false">Experts In</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-free-lessons-tab" data-toggle="pill" href="#pills-free-lessons" role="tab" aria-controls="pills-free-lessons" aria-selected="false">Free Lessons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-our-clients-tab" data-toggle="pill" href="#pills-our-clients" role="tab" aria-controls="pills-our-clients" aria-selected="false">Our Clients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-courses-tab" data-toggle="pill" href="#pills-courses" role="tab" aria-controls="pills-courses" aria-selected="false">Courses</a>
+                        </li>
+                        
                     </ul>
                       <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade  active in" id="pills-Genral" role="tabpanel" aria-labelledby="pills-Genral-tab">
                             <div class="form-group">
-                                {!! Form::label('sitename_ar',trans('admin.sitename_ar'),['class'=>'col-md-3 control-label']) !!}
+                                {!! Form::label('sitename_en',trans('admin.sitename_en'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">
-                                    {!! Form::text('sitename_ar',setting()->sitename_ar,['class'=>'form-control','placeholder'=>trans('admin.sitename_ar')]) !!}
+                                    {!! Form::text('sitename_en',setting()->sitename_en,['class'=>'form-control','placeholder'=>trans('admin.sitename_en')]) !!}
                                 </div>
                             </div>
                             <br>
@@ -76,6 +96,16 @@
                             </div>
                             <br>
 
+
+                            <div class="form-group">
+                                {!! Form::label('whats_number',trans('admin.whats_number'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::text('whats_number',setting()->whats_number,['class'=>'form-control','placeholder'=>trans('admin.whats_number')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+                            
 
                             
                             <div class="form-group">
@@ -173,6 +203,21 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                {!! Form::label('home_title',trans('admin.home_title'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::text('home_title',setting()->home_title,['class'=>'form-control','placeholder'=>trans('admin.home_title')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                {!! Form::label('home_des',trans('admin.home_des'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::text('home_des',setting()->home_des,['class'=>'form-control','placeholder'=>trans('admin.home_des')]) !!}
+                                </div>
+                            </div>
+                            <br>
 
                             <div class="form-group">
                                 {!! Form::label('discover_me_titel',trans('admin.discover_me_titel'),['class'=>'col-md-3 control-label']) !!}
@@ -181,6 +226,19 @@
                                 </div>
                             </div>
                             <br>
+                            
+
+                            
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('discover_me_photo',trans('admin.discover_me_photo'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('discover_me_photo',['class'=>'form-control','placeholder'=>trans('admin.discover_me_photo')]) !!}
+                                    @if(!empty(setting()->discover_me_photo))
+                                     <img src="{{ it()->url(setting()->discover_me_photo) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+
 
                             <div class="form-group">
                                 {!! Form::label('discover_me_des',trans('admin.discover_me_des'),['class'=>'col-md-3 control-label']) !!}
@@ -269,6 +327,98 @@
                                 </div>
                             </div>
 
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('about_me_photo',trans('admin.about_me_photo'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('about_me_photo',['class'=>'form-control','placeholder'=>trans('admin.about_me_photo')]) !!}
+                                    @if(!empty(setting()->about_me_photo))
+                                    <img src="{{ it()->url(setting()->about_me_photo) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                {!! Form::label('about_me_facebook',trans('admin.about_me_facebook'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::text('about_me_facebook',setting()->about_me_facebook,['class'=>'form-control','placeholder'=>trans('admin.about_me_facebook')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                {!! Form::label('about_me_twitter',trans('admin.about_me_twitter'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::text('about_me_twitter',setting()->about_me_twitter,['class'=>'form-control','placeholder'=>trans('admin.about_me_twitter')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                {!! Form::label('about_me_instagram',trans('admin.about_me_instagram'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::text('about_me_instagram',setting()->about_me_instagram,['class'=>'form-control','placeholder'=>trans('admin.about_me_instagram')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+
+    
+
+
+                            <div class="form-group">
+                                {!! Form::label('about_me_youtube',trans('admin.about_me_youtube'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::text('about_me_youtube',setting()->about_me_youtube,['class'=>'form-control','placeholder'=>trans('admin.about_me_youtube')]) !!}
+                                </div>
+                            </div>
+                            <br>
+                            
+                            
+
+
+
+
+
+
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('about_company_photo',trans('admin.about_company_photo'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('about_company_photo',['class'=>'form-control','placeholder'=>trans('admin.about_company_photo')]) !!}
+                                    @if(!empty(setting()->about_company_photo))
+                                    <img src="{{ it()->url(setting()->about_company_photo) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                {!! Form::label('about_education',trans('admin.about_education'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::textarea('about_education',setting()->about_education,['class'=>'form-control','placeholder'=>trans('admin.about_education')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+                            
+                            <div class="form-group">
+                                {!! Form::label('about_company',trans('admin.about_company'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::textarea('about_company',setting()->about_company,['class'=>'form-control','placeholder'=>trans('admin.about_company')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+                            
+                            <div class="form-group">
+                                {!! Form::label('about_info',trans('admin.about_info'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::textarea('about_info',setting()->about_info,['class'=>'form-control','placeholder'=>trans('admin.about_info')]) !!}
+                                </div>
+                            </div>
+                            <br>
+                            
+
                             
                         </div>
                         <div class="tab-pane fade" id="pills-privacy-policy" role="tabpanel" aria-labelledby="pills-privacy-policy-tab">
@@ -279,8 +429,7 @@
                                 </div>
                             </div>
                             <br>
-                        </div>
-                        <div class="tab-pane fade" id="pills-refund-policy" role="tabpanel" aria-labelledby="pills-refund-policy-tab">
+
                             <div class="form-group">
                                 {!! Form::label('refund_policy',trans('admin.refund_policy'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">
@@ -289,25 +438,80 @@
                             </div>
                             <br>
                         </div>
+
+                        <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('register_img',trans('admin.register_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('register_img',['class'=>'form-control','placeholder'=>trans('admin.register_img')]) !!}
+                                    @if(!empty(setting()->register_img))
+                                     <img src="{{ it()->url(setting()->register_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+
+                      
+
+                        <div class="tab-pane fade" id="pills-experts-in" role="tabpanel" aria-labelledby="pills-experts-in-tab">
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('experts_in_img',trans('admin.experts_in_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('experts_in_img',['class'=>'form-control','placeholder'=>trans('admin.experts_in_img')]) !!}
+                                    @if(!empty(setting()->experts_in_img))
+                                     <img src="{{ it()->url(setting()->experts_in_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+                        <div class="tab-pane fade" id="pills-free-lessons" role="tabpanel" aria-labelledby="pills-free-lessons-tab">
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('free_lessons_img',trans('admin.free_lessons_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('free_lessons_img',['class'=>'form-control','placeholder'=>trans('admin.free_lessons_img')]) !!}
+                                    @if(!empty(setting()->free_lessons_img))
+                                     <img src="{{ it()->url(setting()->free_lessons_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-our-clients" role="tabpanel" aria-labelledby="pills-our-clients-tab">
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('our_clients_img',trans('admin.our_clients_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('our_clients_img',['class'=>'form-control','placeholder'=>trans('admin.our_clients_img')]) !!}
+                                    @if(!empty(setting()->our_clients_img))
+                                     <img src="{{ it()->url(setting()->our_clients_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+                        <div class="tab-pane fade" id="pills-courses" role="tabpanel" aria-labelledby="pills-courses-tab">
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('courses_img',trans('admin.courses_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('courses_img',['class'=>'form-control','placeholder'=>trans('admin.courses_img')]) !!}
+                                    @if(!empty(setting()->courses_img))
+                                     <img src="{{ it()->url(setting()->courses_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
                     </div>
                    
          
-{{-- 
-                    address
-phone
-discover_me_titel
-discover_me_des
-discover_me_video
-trainees
-lectures
-events
-company
-personal_information
-facebook
-twitter
-instagram
-linkedin
-youtube --}}
+                    
 
 
 

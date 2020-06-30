@@ -40,7 +40,21 @@
                         <p class="card-text">
                             {{$Event->des}}
                         </p>
-                        <a href="#" class="main-btn btn-hover">check in</a>
+                        <section class="card-footer ">
+                            <span class="show"><i class="far fa-user"></i><span class="check-in-num">{{count($Event->Checks)}}</span></span>
+                            @if(date("Y-m-d") > $Event->date)
+                                <button href="#" data-url="{{route('event.check' , $Event->id)}}" disabled class="main-btn active check-in">check in</button>
+                            @else
+                                @if($Event->Checked())
+                                <button href="#" data-url="{{route('event.check' , $Event->id)}}"  class="main-btn active check-in">check in</button>
+                                @else
+                                <button href="#" data-url="{{route('event.check' , $Event->id)}}" class="main-btn btn-hover check-in">check in</button>
+                                @endif
+                            @endif
+                            
+                        </section>
+                  
+                      
                     </section>
                 </article>
                 @endforeach

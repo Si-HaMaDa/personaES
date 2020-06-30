@@ -21,7 +21,23 @@ Route::namespace('Frontend')->group(function () {
     Route::get('/', 'HomeController@Home');
     Route::get('events-details', 'HomeController@EventsDetails');
     Route::get('privacy-policy', 'HomeController@PrivacyPolicy');
-
+    Route::get('refund-policy', 'HomeController@RefundPolicy');
+    Route::get('about-us', 'HomeController@AboutUs');
+    Route::get('free-lessons', 'HomeController@FreeLessons');
+    Route::get('our-courses', 'HomeController@ourCourses');
+    Route::get('our-courses/{id}', 'HomeController@Course');
+    Route::get('register', 'HomeController@CourseRegister');
+    Route::post('register', 'HomeController@Registered');
+    Route::get('our-clients', 'HomeController@ourClients');
+    Route::get('experts-in', 'HomeController@expertsIn');
+    Route::get('product', 'HomeController@ProductPage');
+    Route::get('product-list', 'HomeController@ProductList');
+    Route::get('product/{id}', 'HomeController@ProductView');
+    Route::post('events-check/{id}', 'HomeController@EventCheck')->name('event.check');
+    Route::post('add-cart/{id}', 'HomeController@AddCart')->name('add.cart');
+    Route::post('delete-cart/{id}', 'HomeController@deleteCart')->name('delete.cart');
+    Route::get('cart', 'HomeController@cart');
+    
     
     
 });

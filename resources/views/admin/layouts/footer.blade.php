@@ -616,10 +616,13 @@
                         <script src="{{url("design/admin_panel/assets/global/plugins/datatables/js/buttons.server-side.js")}}"></script>
                         <script src="{{url("design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js")}}"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+                        @if(!check_link('course'))
                         <script src="https://cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
+                        {{-- <script src="//cdn.ckeditor.com/4.14.1/basic/ckeditor.js"></script> --}}
                         <script>
                         CKEDITOR.replaceClass = 'ckeditor';
                         </script>
+                        @endif  
                         <script type="text/javascript">
                         function change_theme_func(theme)
                         {
@@ -662,7 +665,39 @@
                         @endif
                         $(document).ready(function(){
                         $('.date-picker').datepicker();
+                        $('.date-time').datetimepicker();
                         $.fn.dataTable.ext.errMode = 'none';
+                        });
+
+                        $(".form-group-item .btn-add-item").click(function () {
+                            var p = $(this).closest(".form-group-item").find(".g-items");
+
+                            let number = $(this).closest(".form-group-item").find(".g-items .item:last-child").data("number");
+                            if(number === undefined) number = 0;
+                            else number++;
+                            let extra_html = $(this).closest(".form-group-item").find(".g-more").html();
+                            extra_html = extra_html.replace(/__name__=/gi, "name=");
+                            extra_html = extra_html.replace(/__number__/gi, number);
+                            p.append(extra_html);
+
+                            if(extra_html.indexOf('dungdt-select2-field-lazy') >0 ){
+
+                                p.find('.dungdt-select2-field-lazy').each(function () {
+                                    var configs = $(this).data('options');
+                                    $(this).select2(configs);
+                                });
+                            }
+                        });
+
+                        $(".form-group-item").each(function () {
+                            let container = $(this);
+                            $(this).on('click','.btn-remove-item',function () {
+                                $(this).closest(".item").remove();
+                            });
+                            $(this).on('press','input,select',function () {
+                                let value = $(this).val();
+                                $(this).attr("value",value);
+                            });
                         });
                         </script>
 

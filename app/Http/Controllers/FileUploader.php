@@ -25,7 +25,7 @@ class FileUploader extends Controller {
 	}
 
 	//////// resize image ////////////////////////////////////////////
-	public static function upload($request, $path, $typeid = 'icon', $id = null, $uid = null, $admin_id = null, $resize = null) {
+	public static function upload($request, $path, $typeid = 'icon', $id = null, $uid = null, $admin_id = null, $resize = null ) {
 		if ($resize === null) {
 			$resize = 'no';
 		} else {
@@ -75,6 +75,12 @@ class FileUploader extends Controller {
 			///////////// Resize Any image ////////////////////
 			return '100_'.$upload->file;
 		} else {
+			if($path == 'product'){
+				return [
+					'full_path' => $full_path,
+					'file_name' => $file->getClientOriginalName(),
+				];
+			}
 			return $full_path;
 		}
 	}

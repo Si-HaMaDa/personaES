@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
           <!-- Brand Logo -->
-          <a class="navbar-brand" href="#">Logo</a>
+          <a class="navbar-brand" href="#"><img src="{{ it()->url(setting()->logo) }}" style="width: 75px;" alt="{{setting()->sitename_en}}" ></a>
 
           <!-- Toggle button in mobile and tablet-->
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navLinks"
@@ -16,14 +16,15 @@
                   <li class="nav-item {{active_link_f(null,'active')}}">
                       <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item dropdown">
+                  <li class="nav-item dropdown {{active_link_f('about-us','active')}}">
                       <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
                           aria-haspopup="true" aria-expanded="false">
                           About
                       </a>
-                      <div class="dropdown-menu" aria-labelledby="aboutDropdown">
-                          <a class="dropdown-item internal-link" href="#discoverMe">Simple about</a>
-                          <a class="dropdown-item" href="about-us-details.html">Detailed about</a>
+                      <div class="dropdown-menu " aria-labelledby="aboutDropdown">
+                          <a class="dropdown-item @if (active_link_f(null,true)) internal-link @endif" href="#discoverMe">Simple about</a>
+                          <a class="dropdown-item {{active_link_f('about-us','active')}}" href="{{url('about-us')}}">Detailed about</a>
+                          
                       </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -32,7 +33,7 @@
                           Courses
                       </a>
                       <div class="dropdown-menu" aria-labelledby="coursesDropdown">
-                          <a class="dropdown-item internal-link" href="@if (!active_link_f(null,true)){{url('/')}}@endif#ourCourses">Simple list</a>
+                          <a class="dropdown-item @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#ourCourses">Simple list</a>
                           <a class="dropdown-item" href="#">courses details</a>
                           <a class="dropdown-item" href="#"><span class="styled-link">free</span> lessons</a>
                       </div>
@@ -54,7 +55,7 @@
                           Events
                       </a>
                       <div class="dropdown-menu" aria-labelledby="eventsProducts">
-                          <a class="dropdown-item internal-link" href="@if (!active_link_f(null,true)){{url('/')}}@endif#simpleEvents">events quick view</a>
+                          <a class="dropdown-item @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#simpleEvents">events quick view</a>
                           <a class="dropdown-item {{active_link_f('events-details','active')}}" href="{{url('events-details')}}">all events</a>
                       </div>
                   </li>
@@ -62,12 +63,12 @@
                       
                           
                       
-                      <a class="nav-link internal-link" href="@if (!active_link_f(null,true)){{url('/')}}@endif#latestNews">news</a>
+                      <a class="nav-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#latestNews">news</a>
                           
                       
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link internal-link" href="@if (!active_link_f(null,true)){{url('/')}}@endif#ourTestimonials">testimonials</a>
+                      <a class="nav-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#ourTestimonials">testimonials</a>
                   </li>
                   <li class="nav-item dropdown mr-0">
                       <a class="nav-link dropdown-toggle" href="#" id="contactDropdon" role="button"
@@ -75,7 +76,7 @@
                           contact us
                       </a>
                       <div class="dropdown-menu" aria-labelledby="contactDropdon">
-                          <a class="dropdown-item internal-link" href="#getInTouch">Simple contact</a>
+                          <a class="dropdown-item  internal-link " href="#getInTouch">Simple contact</a>
                           <a class="dropdown-item" href="#">Detailed contact</a>
                       </div>
                   </li>

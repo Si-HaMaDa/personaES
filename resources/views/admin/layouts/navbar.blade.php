@@ -64,9 +64,13 @@
         </li>
     </ul>
 </li>
-<li class="dropdown dropdown-extended dropdown-notification" id="lang_list">
-    <a target="_blank" href="{{url('/')}}" >
-        <i class="fa fa-home"></i> الموقع
+
+
+<li class="dropdown dropdown-user dropdown-dark">
+    <a target="_blank" href="{{url('/')}}" class="dropdown-toggle" >
+        <span class="username username-hide-on-mobile"> Web Site </span>
+        <i class="fa fa-home"></i>
+        <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
     </a>
 </li>
 {{-- <li class="dropdown dropdown-extended dropdown-notification" id="lang_list">

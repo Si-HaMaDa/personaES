@@ -31,12 +31,44 @@ class Setting extends Model {
 		'linkedin',
 		'youtube',
 		'home_photo',
+
+		'home_title',
+		'home_des',
+
 		'event_photo',
 		'about_video',
 		'our_courses_photo',
 		'privacy_policy',
 		'refund_policy',
+		'whats_number',
+		'about_info',
+		'about_education',
+		'about_company',
+		'about_me_photo',
+
+		'about_me_facebook',
+		'about_me_twitter',
+		'about_me_instagram',
+		'about_me_youtube',
+
+		'about_company_photo',
+
+		
+		'register_img',
+		'experts_in_img',
+		'free_lessons_img',
+		'our_clients_img',
+		'courses_img',
+
+		
+		
+		
 	];
 
 }
+
+
+
+
+
 

@@ -32,8 +32,8 @@ class Settings extends Controller {
 	 */
 	public function store(Request $request) {
 		$rules = [
-			'sitename_ar'    => 'required',
-			// 'sitename_en'    => 'required',
+			// 'sitename_ar'    => 'required',
+			'sitename_en'    => 'required',
 			// 'sitename_fr'    => 'required',
 			'email'          => 'required',
 			'logo'           => 'sometimes|nullable|'.it()->image(),
@@ -42,9 +42,13 @@ class Settings extends Controller {
 			'system_message' => '',
 			'address' => '',
 			'phone' => '',
+			'whats_number' => '',
 			'discover_me_titel' => '',
 			'discover_me_des' => '',
 			'discover_me_video' => '',
+			'discover_me_photo' => '',
+			'home_title' => '',
+			'home_des' => 'sometimes|nullable|max:150',
 			'trainees' => '',
 			'lectures' => '',
 			'events' => '',
@@ -58,15 +62,31 @@ class Settings extends Controller {
 			'privacy_policy' => '',
 			'refund_policy' => '',
 			'home_photo'=> 'sometimes|nullable|'.it()->image(),
-'event_photo'=> 'sometimes|nullable|'.it()->image(),
-'about_video'=> 'sometimes|nullable|'.it()->video(),
-'our_courses_photo'=> 'sometimes|nullable|'.it()->image(),
+			'event_photo'=> 'sometimes|nullable|'.it()->image(),
+			'about_video'=> 'sometimes|nullable|'.it()->video(),
+			'our_courses_photo'=> 'sometimes|nullable|'.it()->image(),
+			'about_me_photo'=> 'sometimes|nullable|'.it()->image(),
+			'about_company_photo'=> 'sometimes|nullable|'.it()->image(),
+			'about_info' => '',
+			'about_education' => '',
+			'about_company' => '',
+
+			'register_img'=> 'sometimes|nullable|'.it()->image(),
+			'experts_in_img'=> 'sometimes|nullable|'.it()->image(),
+			'free_lessons_img'=> 'sometimes|nullable|'.it()->video(),
+			'our_clients_img'=> 'sometimes|nullable|'.it()->image(),
+			'courses_img'=> 'sometimes|nullable|'.it()->image(),
 		];
 		
+		
+
+		
+		
+
 
 		$data = $this->validate(request(), $rules, [], [
-				'sitename_ar'    => trans('admin.sitename_ar'),
-				// 'sitename_en'    => trans('admin.sitename_en'),
+				// 'sitename_ar'    => trans('admin.sitename_ar'),
+				'sitename_en'    => trans('admin.sitename_en'),
 				// 'sitename_fr'    => trans('admin.sitename_fr'),
 				'email'          => trans('admin.email'),
 				'logo'           => trans('admin.logo'),
@@ -89,11 +109,44 @@ class Settings extends Controller {
 		if (request()->hasFile('our_courses_photo')) {
 			$data['our_courses_photo'] = it()->upload('our_courses_photo', 'setting');
 		}
-
+		if (request()->hasFile('discover_me_photo')) {
+			$data['discover_me_photo'] = it()->upload('discover_me_photo', 'setting');
+		}
+		
 		if (request()->hasFile('about_video')) {
 			$data['about_video'] = it()->upload('about_video', 'setting');
 		}
+
+		if (request()->hasFile('about_me_photo')) {
+			$data['about_me_photo'] = it()->upload('about_me_photo', 'setting');
+		}
+		if (request()->hasFile('about_company_photo')) {
+			$data['about_company_photo'] = it()->upload('about_company_photo', 'setting');
+		}
 		
+
+		if (request()->hasFile('register_img')) {
+			$data['register_img'] = it()->upload('register_img', 'setting');
+		}
+		if (request()->hasFile('experts_in_img')) {
+			$data['experts_in_img'] = it()->upload('experts_in_img', 'setting');
+		}
+		if (request()->hasFile('free_lessons_img')) {
+			$data['free_lessons_img'] = it()->upload('free_lessons_img', 'setting');
+		}
+		if (request()->hasFile('our_clients_img')) {
+			$data['our_clients_img'] = it()->upload('our_clients_img', 'setting');
+		}
+		if (request()->hasFile('courses_img')) {
+			$data['courses_img'] = it()->upload('courses_img', 'setting');
+		}
+
+
+		
+
+
+
+
 		Setting::orderBy('id', 'desc')->update($data);
 		session()->flash('success', trans('admin.updated'));
 		return redirect(aurl('settings'));

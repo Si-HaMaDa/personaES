@@ -56,7 +56,29 @@ Route::post('testimonials/multi_delete','Admin\TestimonialsController@multi_dele
 Route::post('partners/multi_delete','Admin\PartnersController@multi_delete'); 
 				Route::resource('events','Admin\EventsController'); 
 Route::post('events/multi_delete','Admin\EventsController@multi_delete'); 
+				Route::resource('news','Admin\NewsController'); 
+Route::post('news/multi_delete','Admin\NewsController@multi_delete'); 
+				Route::resource('course','Admin\CourseController'); 
+Route::get('course/{id}/groups','Admin\CourseController@addGroups'); 
+Route::post('course/{id}/groups','Admin\CourseController@insertGroups'); 
+Route::post('groups/send/{id}','Admin\CourseController@sendToGroups'); 
+Route::post('course/multi_delete','Admin\CourseController@multi_delete'); 
+				Route::resource('freelesson','Admin\FreeLessonController'); 
+Route::post('freelesson/multi_delete','Admin\FreeLessonController@multi_delete'); 
+				Route::resource('categories','Admin\CategoriesController'); 
+Route::post('categories/multi_delete','Admin\CategoriesController@multi_delete'); 
+				Route::resource('ourclients','Admin\OurClientsController'); 
+Route::post('ourclients/multi_delete','Admin\OurClientsController@multi_delete'); 
+				Route::resource('expertsin','Admin\ExpertsInController'); 
+Route::post('expertsin/multi_delete','Admin\ExpertsInController@multi_delete'); 
+				Route::resource('product','Admin\ProductController'); 
+Route::post('product/multi_delete','Admin\ProductController@multi_delete'); 
+Route::resource('orders','Admin\OrdersController'); 
+Route::post('orders/multi_delete','Admin\OrdersController@multi_delete'); 
 				//////// Admin Routes /* End */ //////////////
+				
+
+				
 			});
 
 	});

@@ -105,19 +105,20 @@
     <footer class="main-footer">
         <div class="container">
             <h2>persona international</h2>
+            
             <nav class="navbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="navbar-link internal-link" href="#topPanel">home</a></li>
-                    <li class="nav-item"><a class="navbar-link internal-link" href="#discoverMe">about</a></li>
-                    <li class="nav-item"><a class="navbar-link internal-link" href="#ourCourses">courses</a></li>
+                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#topPanel">home</a></li>
+                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#discoverMe">about</a></li>
+                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#ourCourses">courses</a></li>
                     <li class="nav-item"><a class="navbar-link" href="#">products</a></li>
-                    <li class="nav-item"><a class="navbar-link internal-link" href="#">events</a></li>
-                    <li class="nav-item"><a class="navbar-link internal-link" href="#latestNews">news</a></li>
-                    <li class="nav-item"><a class="navbar-link internal-link" href="#simpleEvents">testimonials</a></li>
-                    <li class="nav-item"><a class="navbar-link internal-link" href="#getInTouch">contact us</a></li>
+                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#simpleEvents">events</a></li>
+                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#latestNews">news</a></li>
+                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#simpleEvents">testimonials</a></li>
+                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#getInTouch">contact us</a></li>
                 </ul>
             </nav>
-            <p>privacy policy & refound policy </p>
+            <p><a href="{{url('privacy-policy')}}">privacy policy</a> & <a href="{{url('refund-policy')}}">refund policy</a> </p>
             <p>all right received 2020 <span><i class="far fa-heart"></i></span> scale team</p>
         </div>
     </footer>
@@ -135,8 +136,37 @@
     <script src="{{url('frontend')}}/dist/js/slick.min.js"></script>
     <!-- Countup Plugin -->
     {{-- <script src="{{url('frontend')}}/dist/js/countUp.min.js"></script> --}}
+    <!-- WOW JS -->
+    <script src="{{url('frontend')}}/dist/js/wow.min.js"></script>
+    <!-- Jquery Validate Plugin -->
+    <script src="{{url('frontend')}}/dist/js/jquery.validate.min.js"></script>
+    <!-- Card Plugin -->
+    <script src="{{url('frontend')}}/dist/js/jquery.card.js"></script>
+    <!-- Main app js file -->
     <!-- Main app js file -->
     <script src="{{url('frontend')}}/dist/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    @if(session()->has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+                // footer: '<a href>Why do I have this issue?</a>'
+            })
+        </script>
+    @endif
+    @if(session()->has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
 
 
     @stack('js')
