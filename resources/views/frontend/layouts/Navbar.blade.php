@@ -6,7 +6,20 @@
       
             <a class="navbar-brand" href="{{url('/')}}">
                 <img src="{{ it()->url(setting()->logo) }}" alt="logo">
-                <span>{{setting()->sitename_en}}</span>
+                @php
+                 $sitename_en = explode(' ',trim(setting()->sitename_en));
+                 $nameCount = count($sitename_en); // will print Test   
+                @endphp
+                <span>
+                    @foreach ($sitename_en as $sitename_en)
+                        @if ($loop->index == $nameCount-1)
+                            {{$sitename_en}}
+                        @else
+                            {{$sitename_en}} <br>
+                        @endif
+
+                    @endforeach
+                </span>
             </a>
               <!-- Toggle button in mobile and tablet-->
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navLinks"
