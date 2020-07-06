@@ -42,7 +42,8 @@ Route::namespace('Frontend')->group(function () {
     Route::get('free-lessons-list/{id}', 'HomeController@FreeLessonsList');
     Route::post('search', 'HomeController@Search');
     Route::get('storage-link', function () {
-        Artisan::command('storage:link');
+        Artisan::call("storage:link");
+
         return 'Hello World';
     });
 
