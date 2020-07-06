@@ -31,6 +31,7 @@ class Settings extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
+	
 		$rules = [
 			// 'sitename_ar'    => 'required',
 			'sitename_en'    => 'required',
@@ -57,10 +58,16 @@ class Settings extends Controller {
 			'facebook' => '',
 			'twitter' => '',
 			'instagram' => '',
+			'about_me_facebook' => '',
+			'about_me_twitter' => '',
+			'about_me_instagram' => '',
+			'about_me_youtube' => '',
 			'linkedin' => '',
 			'youtube' => '',
 			'privacy_policy' => '',
 			'refund_policy' => '',
+			'legal_trademark_and_copyright' => '',
+			'terms_of_use' => '',
 			'home_photo'=> 'sometimes|nullable|'.it()->image(),
 			'event_photo'=> 'sometimes|nullable|'.it()->image(),
 			'about_video'=> 'sometimes|nullable|'.it()->video(),
@@ -70,7 +77,6 @@ class Settings extends Controller {
 			'about_info' => '',
 			'about_education' => '',
 			'about_company' => '',
-
 			'register_img'=> 'sometimes|nullable|'.it()->image(),
 			'experts_in_img'=> 'sometimes|nullable|'.it()->image(),
 			'free_lessons_img'=> 'sometimes|nullable|'.it()->video(),
@@ -78,11 +84,6 @@ class Settings extends Controller {
 			'courses_img'=> 'sometimes|nullable|'.it()->image(),
 		];
 		
-		
-
-		
-		
-
 
 		$data = $this->validate(request(), $rules, [], [
 				// 'sitename_ar'    => trans('admin.sitename_ar'),
@@ -123,8 +124,6 @@ class Settings extends Controller {
 		if (request()->hasFile('about_company_photo')) {
 			$data['about_company_photo'] = it()->upload('about_company_photo', 'setting');
 		}
-		
-
 		if (request()->hasFile('register_img')) {
 			$data['register_img'] = it()->upload('register_img', 'setting');
 		}
@@ -140,12 +139,9 @@ class Settings extends Controller {
 		if (request()->hasFile('courses_img')) {
 			$data['courses_img'] = it()->upload('courses_img', 'setting');
 		}
-
-
-		
-
-
-
+		if (request()->hasFile('about_education')) {
+			$data['about_education'] = json_encode($data['about_education']);
+		}
 
 		Setting::orderBy('id', 'desc')->update($data);
 		session()->flash('success', trans('admin.updated'));

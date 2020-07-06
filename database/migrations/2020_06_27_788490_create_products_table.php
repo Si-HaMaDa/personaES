@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->string('img');
             $table->longtext('min_des');
             $table->longtext('des');
-            $table->longtext('prices')->nullable();
             $table->longtext('pdf_files')->nullable();
             $table->bigInteger('piece_price');
             $table->enum('type',['online','shipping']);

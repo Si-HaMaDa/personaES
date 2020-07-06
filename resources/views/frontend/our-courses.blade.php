@@ -21,28 +21,23 @@
         <div class="container">
             <nav class="filter-nav">
                 <ul class="filter-list">
-                    <li class="filter-item">
-                        <a href="{{url('our-courses')}}" class="filter-link main-btn btn-hover active">all</a>
-                    </li>
-
+                        <li class="filter-item">
+                            <a href="{{url('our-courses')}}" class="filter-link main-btn btn-hover active">all</a>
+                        </li>
                     @foreach ($Courses as $Course)
                     @php
                         $Group = $Course->GetGroupByDate();
                     @endphp
                     @if ($Group != false)
                         <li class="filter-item">
-                        <a href="{{url('our-courses')}}/{{$Course->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover">{{$Course->titel}}</a>
+                            <a href="{{url('our-courses')}}/{{$Course->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover">{{$Course->titel}}</a>
                         </li>
                     @endif
-
                     @endforeach
-
-                   
-                   
                 </ul>
             </nav>
             <section class="courses-cards">
-                <div class="row">
+                <div class="row d-none d-md-flex">
                     @foreach ($Courses as $Course)
                     @php
                         $Group = $Course->GetGroupByDate();
@@ -54,11 +49,9 @@
                                 <section class="card-body">
                                     <h3 class="card-title">{{$Course->titel}}</h3>
                                     <p class="card-text">
-                                        {!! $Course->des !!}
+                                        {!! $Course->mini_des !!}
                                     </p>
-                                    @php
-                                        $Group = $Course->GetGroupByDate();
-                                    @endphp
+                               
                                     <p class="course-start-time">
                                         <i class="far fa-clock"></i> starts at <time datetime="{{date('d M yy h:i a', strtotime($Group->strat_at))}}"> <span>{{date('d', strtotime($Group->strat_at))}}</span> {{date('M yy', strtotime($Group->strat_at))}} , <span class="time">{{date('h:i', strtotime($Group->strat_at))}}</span> {{date('a', strtotime($Group->strat_at))}}</time>
                                     </p>
@@ -71,6 +64,33 @@
                         </div>
                     @endif
                     @endforeach
+                </div>
+                <div class="our-courses-carousel d-md-none">
+                    @foreach ($Courses as $Course)
+                    @php
+                        $Group = $Course->GetGroupByDate();
+                    @endphp
+                    @if ($Group != false)
+                        <article id="cardTitle1" class="card">
+                            <img src="{{ it()->url($Course->photo) }}" class="card-img-top" alt="{{$Course->titel}}">
+                            <section class="card-body">
+                                <h3 class="card-title">{{$Course->titel}}</h3>
+                                <p class="card-text">
+                                    {!! $Course->mini_des !!}
+                                </p>
+                             
+                                <p class="course-start-time">
+                                    <i class="far fa-clock"></i> starts at <time datetime="{{date('d M yy h:i a', strtotime($Group->strat_at))}}"> <span>{{date('d', strtotime($Group->strat_at))}}</span> {{date('M yy', strtotime($Group->strat_at))}} , <span class="time">{{date('h:i', strtotime($Group->strat_at))}}</span> {{date('a', strtotime($Group->strat_at))}}</time>
+                                </p>
+                                <p class="course-money">
+                                    <i class="fas fa-money-bill-wave"></i> <span>{{$Group->price}}</span> EGP for <span>{{$Group->sessions}}</span> session
+                                </p>
+                                <a href="{{url('/register')."?type=courses&id=".$Course->id."&group_id=".$Group->id}}" class="register main-btn btn-hover">register</a>
+                            </section>
+                        </article>
+                    @endif
+                    @endforeach
+              
                 </div>
             </section>
         </div>

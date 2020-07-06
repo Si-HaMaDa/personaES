@@ -29,7 +29,7 @@
     <section class="products-list">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-4 col-xl-3">
                     <aside class="filter-products">
                         <h3>category</h3>
                         <form>
@@ -49,8 +49,8 @@
                         </form>
                     </aside>
                 </div>
-                <div class="col-lg-9">
-                    <section class="view-products">
+                <div class="col-lg-8 col-xl-9">
+                    <section class="all-products">
                    
                     </section>
                 </div>

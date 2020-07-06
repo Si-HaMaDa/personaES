@@ -22,6 +22,8 @@ Route::namespace('Frontend')->group(function () {
     Route::get('events-details', 'HomeController@EventsDetails');
     Route::get('privacy-policy', 'HomeController@PrivacyPolicy');
     Route::get('refund-policy', 'HomeController@RefundPolicy');
+    Route::get('terms-use', 'HomeController@TermsOfUse');
+    Route::get('legal-trademark', 'HomeController@LegalTrademarkAndCopyright');
     Route::get('about-us', 'HomeController@AboutUs');
     Route::get('free-lessons', 'HomeController@FreeLessons');
     Route::get('our-courses', 'HomeController@ourCourses');
@@ -37,7 +39,10 @@ Route::namespace('Frontend')->group(function () {
     Route::post('add-cart/{id}', 'HomeController@AddCart')->name('add.cart');
     Route::post('delete-cart/{id}', 'HomeController@deleteCart')->name('delete.cart');
     Route::get('cart', 'HomeController@cart');
+    Route::get('free-lessons-list/{id}', 'HomeController@FreeLessonsList');
+    Route::post('search', 'HomeController@Search');
     
+
     
     
 });

@@ -49,6 +49,16 @@
 </div>
 <br>
 
+
+<div class="form-group">
+	{!! Form::label('mini_des',trans('admin.mini_des'),['class'=>'col-md-3 control-label']) !!}
+	<div class="col-md-9">
+			{!! Form::textarea('mini_des',old('mini_des'),['class'=>'form-control ','placeholder'=>trans('admin.mini_des')]) !!}
+	</div>
+</div>
+<br>
+
+
 <div class="col-md-6">
 
 <div class="form-group">
@@ -84,7 +94,7 @@
 	<div class="form-group">
 		{!! Form::label('duration_dis',trans('admin.duration_dis'),['class'=>'col-md-3 control-label']) !!}
 		<div class="col-md-9">
-{!! Form::select('duration_dis',['week'=>trans('admin.week'),'day'=>trans('admin.day')],old('duration_dis'),['class'=>'form-control']) !!}
+			{!! Form::select('duration_dis',['week'=>trans('admin.week'),'day'=>trans('admin.day')],old('duration_dis'),['class'=>'form-control']) !!}
 		</div>
 </div>
 </div>

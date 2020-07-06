@@ -164,9 +164,9 @@ class CourseDataTable extends DataTable
                  'title'=>trans('admin.titel'),
 		    ],
 				[
-                 'name'=>'des',
-                 'data'=>'des',
-                 'title'=>trans('admin.des'),
+                 'name'=>'mini_des',
+                 'data'=>'mini_des',
+                 'title'=>trans('admin.mini_des'),
 		    ],
             
             [

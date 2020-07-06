@@ -21,13 +21,18 @@
 
     <section class="our-clients">
         <div class="container">
-            <div class="row no-gutters">
+            <div class="row no-gutters d-none d-sm-flex">
                 @foreach ($clients as $client)
                     <div class="col-sm-4 col-md-2">
                         <img src="{{ it()->url($client->logo) }}" alt="{{$client->name}}">
                     </div>
                 @endforeach
                 
+            </div>
+            <div class="our-clients-carousel d-sm-none">
+                @foreach ($clients as $client)
+                    <img src="{{ it()->url($client->logo) }}" alt="{{$client->name}}">
+                @endforeach
             </div>
         </div>
     </section>

@@ -36,6 +36,10 @@
                 <article class="card">
                     <img src="{{it()->url($Event->img)}}" class="card-img-top" alt="{{$Event->title}}">
                     <section class="card-body p-1 p-lg-2">
+                        <div class="event-date">
+                            <time datetime="{{$Event->date}}">{{$Event->date}}</time>
+                            <time>{{date('h:i a', strtotime($Event->time))}}</time>
+                        </div>
                         <h3 class="section-title card-title"><span class="title">{{$Event->title}}</span></h3>
                         <p class="card-text">
                             {{$Event->des}}

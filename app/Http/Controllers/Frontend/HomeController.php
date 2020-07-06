@@ -64,10 +64,38 @@ class HomeController extends Controller
 
     public function FreeLessons()
     {
-        $FreeLessons = FreeLesson::all();
-        return view('frontend.free-lessons', ['title' => trans('frontend.free-lessons')  , 'FreeLessons' => $FreeLessons]);
+        $FreeLessons = FreeLesson::get();
+        $FirstFreeLessons = FreeLesson::get()->first();
+        return view('frontend.free-lessons', ['title' => trans('frontend.free-lessons')  , 'FreeLessons' => $FreeLessons, 'FirstFreeLessons' => $FirstFreeLessons]);
     }
 
+    public function Search()
+    {
+        $rules = [
+            'trem'=>'required',
+            ];
+            $data = $this->validate(request(),$rules,[],[
+            'trem'=>trans('admin.trem'),
+        ]);
+
+        $Courses = Course::where('titel', 'like','%'.request()->trem.'%')->orWhere('des', 'like','%'. request()->trem.'%')->orWhere('mini_des', 'like','%'. request()->trem.'%')->get();
+        $Products = Product::where('title', 'like','%'.request()->trem.'%')->orWhere('des', 'like','%'. request()->trem.'%')->orWhere('min_des', 'like','%'. request()->trem.'%')->orWhere('features_workplace_des', 'like','%'. request()->trem.'%')->orWhere('examine_memorable_des', 'like','%'. request()->trem.'%')->get();
+
+        if($Courses->count() == 0 &&  $Products->count() == 0 ){
+            return redirect(url('/'))->with('error', 'No Search Found');   
+        }
+        return view('frontend.search-page', ['title' => trans('frontend.search')  , 'Courses' => $Courses, 'Products' => $Products]);
+    }
+    
+    public function TermsOfUse()
+    {
+        return view('frontend.terms-of-use', ['title' => trans('frontend.terms-of-use')  ]);
+    }
+
+    public function LegalTrademarkAndCopyright()
+    {
+        return view('frontend.legal-trademark-and-copyright', ['title' => trans('frontend.legal-trademark-and-copyright')  ]);
+    }
 
     public function ourCourses()
     {
@@ -230,7 +258,7 @@ class HomeController extends Controller
     
     public function expertsIn(Request $request)
     {
-        $Experts = ExpertsIn::paginate(10);
+        $Experts = ExpertsIn::paginate(8);
         return view('frontend.experts-in', ['title' => trans('frontend.experts-in')  , 'Experts' => $Experts]);
     }
 
@@ -251,6 +279,17 @@ class HomeController extends Controller
         })->paginate(6);
         return view('frontend.product-list', ['title' => trans('frontend.product-list')  , 'Products' => $Products]);
     }
+
+
+    public function FreeLessonsList($id)
+    {
+        // dd($id);
+        $FreeLesson = FreeLesson::find($id);
+        return view('frontend.free-lessons-list', ['title' => trans('frontend.product-list')  , 'FreeLesson' => $FreeLesson]);
+    }
+
+    
+
 
     public function ProductView($id)
     {

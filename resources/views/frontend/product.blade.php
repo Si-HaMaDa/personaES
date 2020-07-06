@@ -5,16 +5,14 @@
     
 
     <!-- Header -->
-    <header class="products-list-header">
+    <header class="product-header">
         <div class="overlay"></div>
         <div class="container">
             <video autoplay loop>
                 <source src="{{it()->url(setting()->product_video)}}" type="video/mp4">
                 Your browser does not support the HTML5 video.
             </video>
-            <div class="header-wrapper">
-                <h1 class="section-title"><span class="title">{{$Product->title}}</span></h1>
-            </div>
+        
             <div class=" social-links">
                 <a class="facebook"  target="_blank" href="{{setting()->facebook}}"><i class="fab fa-facebook-f"></i></a>
                 <a class="twitter"  target="_blank" href="{{setting()->twitter}}"><i class="fab fa-twitter"></i></a>
@@ -27,7 +25,7 @@
     <!-- Free Lessons carousel section -->
 
     <main class="banner-title">
-        <h1>Everything DiSC Workplace® Profile</h1>
+        <h1>{{$Product->title}}</h1>
     </main>
 
     <!-- products list Sections -->
@@ -61,7 +59,7 @@
                                     <article class="form-group">
                                         <label for="productQuantity">quantity</label>
                                         <input type="hidden" name="productPrice" id="productPrice" value="{{$Product->piece_price}}">
-                                        <input type="number" name="productQuantity" id="productQuantity" class="form-control" value="1">
+                                        <input type="number" name="productQuantity" min="1" id="productQuantity" class="form-control" value="1">
                                     </article>
                                     @if($Product->Checked())
                                         <button type="submit" data-url="{{route('add.cart' , $Product->id)}}" style="background-color: #3DB166;" disabled class="main-btn add-to-cart active">This In Cart</button>
@@ -133,32 +131,6 @@
                     </blockquote>
                 </section>
 
-                <!--Pricing Table -->
-
-                <section class="col-md-5 pricing-table">
-                    <h3>pricing</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>quantity</td>
-                                <td>price per profile</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if(!empty($Product->prices))
-                            @php if(!is_array($Product->prices)) $prices = json_decode($Product->prices); @endphp
-                            @foreach($prices as $key=>$prices)
-
-                                <tr>
-                                    <td>{{$prices->from}}-{{$prices->to}}</td>
-                                    <td>${{$prices->price}}</td>
-                                <tr>
-                            @endforeach
-                            @endif
-                            
-                        </tbody>
-                    </table>
-                </section>
 
                 <!-- purchase reports -->
 
@@ -179,11 +151,6 @@
         </div>
     </section>
 
-<script>
-    var price = {!! $Product->prices !!};
-        price = Object.values(price);
-        piecePrice = {{$Product->piece_price}};
-</script>
 
 
 @stop

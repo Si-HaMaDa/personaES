@@ -47,9 +47,14 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 				Route::any('logout', 'Admin\AdminAuthenticated@logout');
 
 				Route::get('account', 'Admin\AdminAuthenticated@account');
+				Route::get('translate', 'Admin\LabelsController@index');
+				Route::post('translate', 'Admin\LabelsController@store')->name('labels.store');
+				Route::get('translate/edit/{key}', 'Admin\LabelsController@edit')->name('labels.edit');
+
+				
 				Route::post('account', 'Admin\AdminAuthenticated@account_post');
 				Route::resource('settings', 'Admin\Settings');
-
+				
 				Route::resource('testimonials','Admin\TestimonialsController'); 
 Route::post('testimonials/multi_delete','Admin\TestimonialsController@multi_delete'); 
 				Route::resource('partners','Admin\PartnersController'); 

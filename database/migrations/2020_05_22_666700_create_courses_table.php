@@ -18,11 +18,12 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('id');
             $table->string('titel');
             $table->longtext('des');
+            $table->longtext('mini_des');
             $table->string('photo')->nullable();
 			$table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

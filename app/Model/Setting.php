@@ -35,22 +35,25 @@ class Setting extends Model {
 		'home_title',
 		'home_des',
 
+
+		
+
 		'event_photo',
 		'about_video',
 		'our_courses_photo',
 		'privacy_policy',
 		'refund_policy',
+		'legal_trademark_and_copyright',
+		'terms_of_use',
 		'whats_number',
 		'about_info',
 		'about_education',
 		'about_company',
 		'about_me_photo',
-
 		'about_me_facebook',
 		'about_me_twitter',
 		'about_me_instagram',
 		'about_me_youtube',
-
 		'about_company_photo',
 
 		

@@ -65,9 +65,6 @@
                         <li class="nav-item">
                             <a class="nav-link" id="pills-our-clients-tab" data-toggle="pill" href="#pills-our-clients" role="tab" aria-controls="pills-our-clients" aria-selected="false">Our Clients</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-courses-tab" data-toggle="pill" href="#pills-courses" role="tab" aria-controls="pills-courses" aria-selected="false">Courses</a>
-                        </li>
                         
                     </ul>
                       <div class="tab-content" id="pills-tabContent">
@@ -243,7 +240,7 @@
                             <div class="form-group">
                                 {!! Form::label('discover_me_des',trans('admin.discover_me_des'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">
-                                    {!! Form::textarea('discover_me_des',setting()->discover_me_des,['class'=>'form-control','placeholder'=>trans('admin.discover_me_des')]) !!}
+                                    {!! Form::textarea('discover_me_des',setting()->discover_me_des,['class'=>'form-control ckeditor','placeholder'=>trans('admin.discover_me_des')]) !!}
                                 </div>
                             </div>
                             <br>
@@ -378,9 +375,6 @@
 
 
 
-
-
-
                             <div class="form-group col-md-12 col-lg-12">
                                 {!! Form::label('about_company_photo',trans('admin.about_company_photo'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">
@@ -391,20 +385,57 @@
                                 </div>
                             </div>
 
+        
                             
-                            <div class="form-group">
-                                {!! Form::label('about_education',trans('admin.about_education'),['class'=>'col-md-3 control-label']) !!}
-                                <div class="col-md-9">
-                                    {!! Form::textarea('about_education',setting()->about_education,['class'=>'form-control','placeholder'=>trans('admin.about_education')]) !!}
+                            <div class="form-group-item">
+                                <label class="control-label">{{__('about_education')}}</label>
+                                <div class="g-items-header">
+                                        <div class="row">
+                                                <div class="col-md-11">{{__("education")}}</div>
+                                                <div class="col-md-1"></div>
+                                        </div>
+                                </div>
+                                <div class="g-items">
+                                        @if(!empty(setting()->about_education))
+                                                @php if(!is_array(setting()->about_education)) setting()->about_education = json_decode(setting()->about_education); @endphp
+                                                @foreach(json_decode(setting()->about_education) as $key=>$education)
+                                                            <div class="item" data-number="{{$key}}">
+                                                                    <div class="row">
+                                                                            <div class="col-md-11">
+                                                                                    <input type="text" name="about_education[{{$key}}]" value="{{$education}}" class="form-control" placeholder="{{trans('admin.education')}}">
+                                                                            </div>
+                                                                      
+                                                                            <div class="col-md-1">
+                                                                                    <span class="btn btn-danger btn-sm btn-remove-item"><i class="fa fa-trash"></i></span>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                @endforeach
+                                        @endif
+                                </div>
+                                <div class="text-right">
+                                        <span class="btn btn-info btn-sm btn-add-item"><i class="icon ion-ios-add-circle-outline"></i> {{__('Add item')}}</span>
+                                </div>
+                                <div class="g-more hide">
+                                        <div class="item" data-number="__number__">
+                                                <div class="row">
+                                                        <div class="col-md-11">
+                                                                <input type="text" __name__="about_education[__number__]" class="form-control" placeholder="{{trans('admin.education')}}">
+                                                        </div>
+                                                      
+                                                        <div class="col-md-1">
+                                                                <span class="btn btn-danger btn-sm btn-remove-item"><i class="fa fa-trash"></i></span>
+                                                        </div>
+                                                </div>
+                                        </div>
                                 </div>
                             </div>
-                            <br>
 
                             
                             <div class="form-group">
                                 {!! Form::label('about_company',trans('admin.about_company'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">
-                                    {!! Form::textarea('about_company',setting()->about_company,['class'=>'form-control','placeholder'=>trans('admin.about_company')]) !!}
+                                    {!! Form::textarea('about_company',setting()->about_company,['class'=>'form-control ckeditor','placeholder'=>trans('admin.about_company')]) !!}
                                 </div>
                             </div>
                             <br>
@@ -437,6 +468,26 @@
                                 </div>
                             </div>
                             <br>
+
+                            <div class="form-group">
+                                {!! Form::label('legal_trademark_and_copyright',trans('admin.legal_trademark_and_copyright'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::textarea('legal_trademark_and_copyright',setting()->legal_trademark_and_copyright,['class'=>'form-control ckeditor','placeholder'=>trans('admin.legal_trademark_and_copyright')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                {!! Form::label('terms_of_use',trans('admin.terms_of_use'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::textarea('terms_of_use',setting()->terms_of_use,['class'=>'form-control ckeditor','placeholder'=>trans('admin.terms_of_use')]) !!}
+                                </div>
+                            </div>
+                            <br>
+
+
+                            
+
                         </div>
 
                         <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
@@ -495,19 +546,7 @@
                             <br>
                             
                         </div>
-                        <div class="tab-pane fade" id="pills-courses" role="tabpanel" aria-labelledby="pills-courses-tab">
-                            <div class="form-group col-md-12 col-lg-12">
-                                {!! Form::label('courses_img',trans('admin.courses_img'),['class'=>'col-md-3 control-label']) !!}
-                                <div class="col-md-9">
-                                    {!! Form::file('courses_img',['class'=>'form-control','placeholder'=>trans('admin.courses_img')]) !!}
-                                    @if(!empty(setting()->courses_img))
-                                     <img src="{{ it()->url(setting()->courses_img) }}" style="width:300px;height:150px" />
-                                    @endif
-                                </div>
-                            </div>
-                            <br>
-                            
-                        </div>
+                  
                     </div>
                    
          

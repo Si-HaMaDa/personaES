@@ -1,23 +1,45 @@
     <!-- Our Numbers Section -->
     <section class="our-numbers">
         <div class="container-fluid">
-            <div class="row">
-                <div class="our-number-item col-md-3 col-sm-6">
+            <div class="row d-none d-md-flex">
+                <div class="our-number-item col-md-6 col-lg-3">
                     <i class="fas fa-users"></i>
                     <span class="number-value">{{setting()->trainees}}</span>
                     <span class="title">Trainees</span>
                 </div>
-                <div class="our-number-item col-md-3 col-sm-6">
+                <div class="our-number-item col-md-6 col-lg-3">
                     <i class="fas fa-university"></i>
                     <span class="number-value">{{setting()->lectures}}</span>
                     <span class="title">Lectures</span>
                 </div>
-                <div class="our-number-item col-md-3 col-sm-6">
+                <div class="our-number-item col-md-6 col-lg-3">
                     <i class="fas fa-globe"></i>
                     <span class="number-value">{{setting()->events}}</span>
                     <span class="title">Events</span>
                 </div>
-                <div class="our-number-item col-md-3 col-sm-6">
+                <div class="our-number-item col-md-6 col-lg-3">
+                    <i class="fas fa-user-tie"></i>
+                    <span class="number-value">{{setting()->company}}</span>
+                    <span class="title">Company</span>
+                </div>
+            </div>
+            <div class="our-numbers-carousel d-md-none">
+                <div class="our-number-item">
+                    <i class="fas fa-users"></i>
+                    <span class="number-value">{{setting()->trainees}}</span>
+                    <span class="title">Trainees</span>
+                </div>
+                <div class="our-number-item">
+                    <i class="fas fa-university"></i>
+                    <span class="number-value">{{setting()->lectures}}</span>
+                    <span class="title">Lectures</span>
+                </div>
+                <div class="our-number-item">
+                    <i class="fas fa-globe"></i>
+                    <span class="number-value">{{setting()->events}}</span>
+                    <span class="title">Events</span>
+                </div>
+                <div class="our-number-item">
                     <i class="fas fa-user-tie"></i>
                     <span class="number-value">{{setting()->company}}</span>
                     <span class="title">Company</span>
@@ -26,6 +48,9 @@
         </div>
     </section>
 
+
+
+    
     <!-- Get in touch section -->
 
     <section id="getInTouch" class="get-in-touch">
@@ -46,7 +71,7 @@
                     </p>
                     <address>
                         <p>
-                            <a class="contact-link" href="http://maps.google.com/?q={{setting()->address}}" target="_blank"><i class="fas fa-map-marker-alt"></i> {{setting()->address}}</a>
+                            <a class="contact-link" href="http://maps.google.com/?q={{setting()->address}}" target="_blank"><i class="fas fa-map-marker-alt"></i>{{setting()->address}}</a>
                         </p>
                         <p>
                             <a class="contact-link" href="tel:{{setting()->phone}}"><i class="fas fa-phone"></i >(02)-{{setting()->phone}}
@@ -67,16 +92,16 @@
                 <form class="col-md-6">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <input type="text" class="form-control" placeholder="Name">
+                            <input type="text" name="name" class="form-control" placeholder="Name">
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="tel" class="form-control" placeholder="Phone">
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone">
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" name="email" class="form-control" placeholder="Email">
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject">
                         </div>
                         <div class="col-12 form-group">
                             <textarea class="form-control" placeholder="Your Message" rows="6"></textarea>
@@ -92,22 +117,26 @@
 
     <!-- Brands Carousel Section -->
 
-    <section class="slider brands-carousel">
-        @foreach ($Partners as $Partner)
-            <div class="brand-item">
-                <img src="{{it()->url($Partner->logo)}}" alt="{{$Partner->name}}">
+    <section class="brandings">
+        <div class="container">
+            <div class="brands-carousel">
+                @foreach ($Partners as $Partner)
+                <div class="brand-item">
+                    <img src="{{it()->url($Partner->logo)}}" alt="{{$Partner->name}}">
+                </div>
+                @endforeach
             </div>
-        @endforeach
-
+        </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <h2>persona international</h2>
+            <h2>{{trans('admin.persona_international')}}</h2>
             
-            <nav class="navbar">
-                <ul class="navbar-nav">
+            <nav class="navbar d-none d-lg-block">
+                <ul class="navbar-nav ">
                     <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#topPanel">home</a></li>
                     <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#discoverMe">about</a></li>
                     <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#ourCourses">courses</a></li>
@@ -118,11 +147,30 @@
                     <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#getInTouch">contact us</a></li>
                 </ul>
             </nav>
-            <p><a href="{{url('privacy-policy')}}">privacy policy</a> & <a href="{{url('refund-policy')}}">refund policy</a> </p>
+            <p>
+                <a href="privacy-policy.html">privacy policy</a> - <a href="refound-policy.html">privacy policy</a> - <a href="legal_trademark_and_copyright.html">lega trademark and copy rights</a> - <a href="terms_of_use.html">terms of use</a>
+            </p>
+            {{-- <p><a href="{{url('privacy-policy')}}">privacy policy</a> & <a href="{{url('refund-policy')}}">refund policy</a> </p> --}}
             <p>all right received 2020 <span><i class="far fa-heart"></i></span> scale team</p>
         </div>
     </footer>
-
+    
+    <div class="spinner-lode">
+        <div class="multi-spinner-container">
+            <div class="multi-spinner">
+                <div class="multi-spinner">
+                    <div class="multi-spinner">
+                        <div class="multi-spinner">
+                            <div class="multi-spinner">
+                                <div class="multi-spinner">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Start scripts -->
     <!-- Jquery js file -->
     <script src="{{url('frontend')}}/dist/js/jquery-3.4.1.min.js"></script>
@@ -148,6 +196,28 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     @if(session()->has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+                // footer: '<a href>Why do I have this issue?</a>'
+            })
+        </script>
+    @endif
+    @if(count($errors->all()) > 0)
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{  $errors }}',
+                // footer: '<a href>Why do I have this issue?</a>'
+            })
+        </script>
+
+        
+    @endif
+    @if(session()->has('errors'))
         <script>
             Swal.fire({
                 icon: 'error',

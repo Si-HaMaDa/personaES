@@ -45,7 +45,7 @@ class PartnersController extends Controller
             public function store()
             {
               $rules = [
-             'name'=>'required',
+             'name'=>'',
              'logo'=>'required|'.it()->image().'',
 
                    ];
@@ -98,7 +98,7 @@ class PartnersController extends Controller
             public function update($id)
             {
                 $rules = [
-             'name'=>'required',
+             'name'=>'',
              'logo'=>'required|'.it()->image().'',
 
                          ];

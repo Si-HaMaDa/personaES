@@ -20,46 +20,48 @@
     <main class="our-courses">
         <div class="container">
                 <!-- BEGIN PAGE BASE CONTENT -->
-    @if(count($errors->all()) > 0)
-    <div class="alert alert-danger">
-    <ol>
-        @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ol>
-    </div>
-    @endif
-    @if(session()->has('error'))
-    <div class="alert alert-danger">
-        <button class="close" data-close="alert"></button>
+            @if(count($errors->all()) > 0)
+            <div class="alert alert-danger">
+            <ol>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ol>
+            </div>
+            @endif
+            @if(session()->has('error'))
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button>
 
-        <span> {{ session('error') }} </span>
-    </div>
-    @endif
+                <span> {{ session('error') }} </span>
+            </div>
+            @endif
 
-    @if(session()->has('success'))
-    <div class="alert alert-success">
-        <button class="close" data-close="alert"></button>
-        @if(session()->has('success'))
-        <span> {{ session('success') }} </span>
-        @endif
-    </div>
-    @endif
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button>
+                @if(session()->has('success'))
+                <span> {{ session('success') }} </span>
+                @endif
+            </div>
+            @endif
     
             <nav class="filter-nav">
                 <ul class="filter-list">
-                    <li class="filter-item">
-                        <a href="{{url('our-courses')}}" class="filter-link main-btn btn-hover">all</a>
-                    </li>
-
-                    @foreach ($Courses as $ourCourse)
-                    <li class="filter-item">
-                    <a href="{{url('our-courses')}}/{{$ourCourse->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover @if($Course->id == $ourCourse->id) active @endif">{{$ourCourse->titel}}</a>
-                    </li>
-                    @endforeach
-
-                   
-                   
+                 
+                        <li class="filter-item">
+                            <a href="{{url('our-courses')}}" class="filter-link main-btn btn-hover ">all</a>
+                        </li>
+                        @foreach ($Courses as $Course)
+                        @php
+                            $Group = $Course->GetGroupByDate();
+                        @endphp
+                        @if ($Group != false)
+                            <li class="filter-item">
+                                <a href="{{url('our-courses')}}/{{$Course->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover @if($Course->id == $Course->id) active @endif">{{$Course->titel}}</a>
+                            </li>
+                        @endif
+                        @endforeach
                 </ul>
             </nav>
 
@@ -97,7 +99,6 @@
                                     <div class="col-12">
                                         <p class="course-start-date">
                                             <i class="far fa-clock"></i> starts at <time datetime="{{date('d M yy h:i a', strtotime($Group->strat_at))}}"> <span>{{date('d', strtotime($Group->strat_at))}}</span> {{date('M yy', strtotime($Group->strat_at))}} , <span class="time">{{date('h:i', strtotime($Group->strat_at))}}</span> {{date('a', strtotime($Group->strat_at))}}</time>
-
                                         </p>
                                     </div>
                                 </div>
@@ -124,6 +125,9 @@
                     <div class="col-12">
                         <a href="{{url('/register')."?type=courses&id=".$Course->id."&group_id=".$Group->id}}" class="register main-btn btn-hover">register now</a>
                     </div>
+                    <div class="col-12">
+                        <p class="text-center" style="font-size: 20px"><span style="color: red; font-size: 1.2rem;">*</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et facilis </p>
+                    </div>
                 </div>
             </section>
 
@@ -134,11 +138,6 @@
 
 
         <!-- Header -->
-
-
-
-    <main>
-
     <!-- Free Lessons carousel section -->
 
 

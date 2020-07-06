@@ -143,61 +143,6 @@
 </div>
 <br>
 
-<div class="form-group-item">
-	<label class="control-label">{{__('Prices')}}</label>
-	<div class="g-items-header">
-			<div class="row">
-					<div class="col-md-3">{{__("From")}}</div>
-					<div class="col-md-3">{{__('To')}}</div>
-					<div class="col-md-5">{{__('Price')}}</div>
-					<div class="col-md-1"></div>
-			</div>
-	</div>
-	<div class="g-items">
-			@if(!empty($product->prices))
-					@php if(!is_array($product->prices)) $product->prices = json_decode($product->prices); @endphp
-					@foreach($product->prices as $key=>$prices)
-								<div class="item" data-number="{{$key}}">
-										<div class="row">
-												<div class="col-md-3">
-														<input type="number" name="prices[{{$key}}][from]" value="{{$prices->from}}" class="form-control" placeholder="{{trans('admin.from')}}">
-												</div>
-												<div class="col-md-3">
-														<input type="number" name="prices[{{$key}}][to]" value="{{$prices->to}}" class="form-control" placeholder="{{trans('admin.to')}}">
-												</div>
-												<div class="col-md-5">
-														<input type="number" name="prices[{{$key}}][price]" value="{{$prices->price}}" class="form-control" placeholder="{{trans('admin.price')}}">
-												</div>
-												<div class="col-md-1">
-														<span class="btn btn-danger btn-sm btn-remove-item"><i class="fa fa-trash"></i></span>
-												</div>
-										</div>
-								</div>
-					@endforeach
-			@endif
-	</div>
-	<div class="text-right">
-			<span class="btn btn-info btn-sm btn-add-item"><i class="icon ion-ios-add-circle-outline"></i> {{__('Add item')}}</span>
-	</div>
-	<div class="g-more hide">
-			<div class="item" data-number="__number__">
-					<div class="row">
-							<div class="col-md-3">
-									<input type="number" __name__="prices[__number__][from]" class="form-control" placeholder="{{trans('admin.from')}}">
-							</div>
-							<div class="col-md-3">
-									<input type="number" __name__="prices[__number__][to]" class="form-control" placeholder="{{trans('admin.to')}}">
-							</div>
-							<div class="col-md-5">
-									<input type="number" __name__="prices[__number__][price]" class="form-control" placeholder="{{trans('admin.price')}}">
-							</div>
-							<div class="col-md-1">
-									<span class="btn btn-danger btn-sm btn-remove-item"><i class="fa fa-trash"></i></span>
-							</div>
-					</div>
-			</div>
-	</div>
-</div>
 
 
 

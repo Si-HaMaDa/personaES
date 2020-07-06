@@ -52,7 +52,6 @@ class ProductController extends Controller
              'des'=>'required',
              'piece_price'=>'required|numeric',
              'category_id'=>'required',
-             'prices'=>'required',
              'pdf_files'=>'nullable|sometimes',
              'type'=>'required',
              'features_workplace_img'=>''.it()->image().'|nullable|sometimes',
@@ -68,7 +67,6 @@ class ProductController extends Controller
              'des'=>trans('admin.des'),
              'piece_price'=>trans('admin.piece_price'),
              'category_id'=>trans('admin.category_id'),
-             'prices'=>trans('admin.prices'),
              'type'=>trans('admin.type'),
              'pdf_files'=>trans('admin.pdf_files'),
              'features_workplace_img'=>trans('admin.features_workplace_img'),
@@ -103,7 +101,6 @@ class ProductController extends Controller
             }
 
               
-              $data['prices'] = json_encode($data['prices']);
             //   dd($data);
               Product::create($data); 
 
@@ -152,7 +149,6 @@ class ProductController extends Controller
              'piece_price'=>'required|numeric',
              'category_id'=>'required',
              'type'=>'required',
-             'prices'=>'required',
              'pdf_files'=>'nullable|sometimes',
              'pdf_files_old'=>'nullable|sometimes',
              'features_workplace_img'=>''.it()->image().'|nullable|sometimes',
@@ -170,7 +166,6 @@ class ProductController extends Controller
              'piece_price'=>trans('admin.piece_price'),
              'category_id'=>trans('admin.category_id'),
              'type'=>trans('admin.type'),
-             'prices'=>trans('admin.prices'),
              'pdf_files'=>trans('admin.pdf_files'),
              'features_workplace_img'=>trans('admin.features_workplace_img'),
              'features_workplace_des'=>trans('admin.features_workplace_des'),
@@ -205,7 +200,6 @@ class ProductController extends Controller
                 }
 
                 unset($data['pdf_files_old']);
-              $data['prices'] = json_encode($data['prices']);
 
               Product::where('id',$id)->update($data);
 

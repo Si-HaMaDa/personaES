@@ -18,9 +18,7 @@
             </div>
         </header>
     
-        <main class="banner-title">
-            <h1>Everything DiSC Workplace® Profile</h1>
-        </main>
+ 
     
         <!-- disc payment form -->
     

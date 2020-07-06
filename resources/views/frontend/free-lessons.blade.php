@@ -29,16 +29,9 @@
             <div class="row">
                 <div class="col-12">
                     <section class="free-lessons-carousel">
-                    
-                        @foreach ($FreeLessons as $FreeLesson)
-                            <article class="card">
-                                <iframe width="1068" height="601" src="{{getYoutubeEmbedUrl($FreeLesson->v_url)}}" frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                </iframe>
-                            </article>
-                    
-                        @endforeach
-
+                        <iframe width="1440" height="601" src="{{getYoutubeEmbedUrl($FirstFreeLessons->v_url)}}" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
                     </section>
                 </div>
                 <!-- All Lessons Section -->
@@ -50,7 +43,7 @@
                             ?>
                             @foreach ($FreeLessons as $FreeLesson)
                             <div class="col-lg-4 col-md-6">
-                            <article class="card" data-slide-index="{{$i}}">
+                            <article class="card" data-url="{{url('/free-lessons-list')}}/{{$FreeLesson->id}}" data-slide-index="{{$FreeLesson->id}}">
                                     <img class="card-img-top" src="https://img.youtube.com/vi/{{getYoutubeIdUrl($FreeLesson->v_url)}}/sddefault.jpg" alt="{{$FreeLesson->titel}}">
                                     <section class="card-body">
                                         <h3 class="card-title"><span class="title">{{$FreeLesson->titel}}</span></h3>

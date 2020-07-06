@@ -31,7 +31,7 @@
     <main class="section-wrapper about-us">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mb-5 m-lg-0">
+                <div class="col-lg-6 mb-5 m-lg-0 order-2 order-lg-1">
                     <section id="aboutMeDetails" class="about-me-details">
                         <nav class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active" id="infoAboutMeTab" data-toggle="tab" data-image="#tabImage1" href="#infoAboutMe" role="tab"
@@ -76,7 +76,11 @@
                                         <div id="education" class="collapse" aria-labelledby="educationHeading" data-parent="#infoAboutMe">
                                             <div class="card-body">
                                                 <p class="card-text">
-                                                    {{setting()->about_education}}
+                                                    <ul class="education-list">
+                                                    @foreach(json_decode(setting()->about_education) as $key=>$education)
+                                                          <li class="education-item">{{$education}}</li>
+                                                    @endforeach
+                                                    </ul>
                                                 </p>
                                             </div>
                                         </div>
@@ -94,10 +98,6 @@
                                         <div id="contactMe" class="contact-me collapse" aria-labelledby="contactMeHeading" data-parent="#infoAboutMe">
                                             <div class="card-body">
                                                 <p class="card-text">
-                                                    
-                                        
-                                        
-                                            
                                                     <address>
                                                         <p>
                                                             <a class="contact-link" href="http://maps.google.com/?q={{setting()->address}}"
@@ -121,13 +121,7 @@
                                                         <a class="twitter"  target="_blank" href="{{setting()->about_me_twitter}}"><i class="fab fa-twitter"></i></a>
                                                         <a class="instagram"  target="_blank" href="{{setting()->about_me_instagram}}"><i class="fab fa-instagram"></i></a>
                                                         <a class="youtube"  target="_blank" href="{{setting()->about_me_youtube}}"><i class="fab fa-youtube"></i></a>
-                                                    
                                             
-                                                        {{--                                                         
-                                                        <a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a>
-                                                        <a class="twitter" href="#"><i class="fab fa-twitter"></i></a>
-                                                        <a class="instagram" href="#"><i class="fab fa-instagram"></i></a>
-                                                        <a class="youtube" href="#"><i class="fab fa-youtube"></i></a> --}}
                                                     </div>
                                                 </p>
                                             </div>
@@ -138,13 +132,13 @@
                   
                             <section class="tab-pane fade" id="infoAboutCompany" role="tabpanel" aria-labelledby="infoAboutCompanyTab">
                                 <p class="card-text">
-                                    {{setting()->about_company}}
+                                    {!!setting()->about_company!!}
                                 </p>
                             </section>
                         </section>
                     </section>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
                     <Section class="about-me-images">
                         <img id="tabImage1" class="fade show" src="{{it()->url(setting()->about_me_photo)}}" alt="about-us">
                         <img id="tabImage2" class="fade" src="{{it()->url(setting()->about_company_photo)}}" alt="about-us">

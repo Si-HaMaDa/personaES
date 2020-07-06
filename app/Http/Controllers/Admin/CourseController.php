@@ -50,6 +50,7 @@ class CourseController extends Controller
               $rules = [
              'titel'=>'required',
              'des'=>'required',
+             'mini_des'=>'required',
              'price'=>'required|numeric',
              'sessions'=>'required|numeric',
              'duration_num'=>'required|numeric',
@@ -58,11 +59,12 @@ class CourseController extends Controller
              'attends'=>'required|numeric',
              'photo'=>''.it()->image().'',
              'time'=>'required',
-
+             
                    ];
               $data = $this->validate(request(),$rules,[],[
              'titel'=>trans('admin.titel'),
              'des'=>trans('admin.des'),
+             'mini_des'=>trans('admin.mini_des'),
              'price'=>trans('admin.price'),
              'sessions'=>trans('admin.sessions'),
              'duration_num'=>trans('admin.duration_num'),
@@ -119,7 +121,7 @@ class CourseController extends Controller
             public function addGroups($id)
             {
                 $course =  Course::find($id);
-                return view('admin.course.add-groups',['title'=>trans('admin.add-groups'),'course'=>$course]);
+                return view('admin.course.add-groups',['title'=>trans('admin.add_groups'),'course'=>$course]);
             }
 
 
@@ -218,12 +220,15 @@ class CourseController extends Controller
                 $rules = [
              'titel'=>'required',
              'des'=>'required',
+             'mini_des'=>'required',
             'photo'=>''.it()->image().'',
 
                          ];
              $data = $this->validate(request(),$rules,[],[
              'titel'=>trans('admin.titel'),
              'des'=>trans('admin.des'),
+             'mini_des'=>trans('admin.mini_des'),
+
             'photo'=>trans('admin.photo'),
                    ]);
 

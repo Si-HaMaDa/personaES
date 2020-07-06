@@ -31,10 +31,16 @@
         @if(!empty(setting()->icon))
         <link rel="shortcut icon" href="{{ it()->url(setting()->icon) }}" />
         @endif
+
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <!-- END CORE PLUGINS -->
+        <script>
+            function loadHide() {
+              $('.spinner-lode').fadeOut(800);
+            }
+        </script>
     </head>
     <!-- END HEAD -->
-    <body>
+    <body onload="loadHide()">
       

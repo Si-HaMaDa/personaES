@@ -22,7 +22,6 @@ protected $fillable = [
 'piece_price',
 'category_id',
 'type',
-'prices',
 'pdf_files',
 'features_workplace_img',
 'features_workplace_des',

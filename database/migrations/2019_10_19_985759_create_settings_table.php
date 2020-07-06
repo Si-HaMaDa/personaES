@@ -28,8 +28,6 @@ class CreateSettingsTable extends Migration
             $table->longtext('discover_me_des')->nullable();
             $table->string('discover_me_video')->nullable();
             $table->string('discover_me_photo')->nullable();
-
-            
             $table->string('trainees')->nullable();
             $table->string('lectures')->nullable();
             $table->string('events')->nullable();
@@ -37,6 +35,8 @@ class CreateSettingsTable extends Migration
             $table->longtext('personal_information')->nullable();
             $table->longtext('privacy_policy')->nullable();
             $table->longtext('refund_policy')->nullable();
+            $table->longtext('legal_trademark_and_copyright')->nullable();
+            $table->longtext('terms_of_use')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();

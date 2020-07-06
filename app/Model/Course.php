@@ -14,16 +14,19 @@ protected $fillable = [
 		'admin_id',
 		      'titel',
 'des',
-'price',
-'sessions',
-'duration_num',
-'duration_dis',
+'mini_des',
+// 'price',
+// 'sessions',
+// 'duration_num',
+// 'duration_dis',
 
-'strat_at',
-'attends',
+
+
+// 'strat_at',
+// 'attends',
 'photo',
 
-'time',
+// 'time',
 		'created_at',
 		'updated_at',
 	];

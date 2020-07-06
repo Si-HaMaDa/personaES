@@ -616,13 +616,13 @@
                         <script src="{{url("design/admin_panel/assets/global/plugins/datatables/js/buttons.server-side.js")}}"></script>
                         <script src="{{url("design/admin_panel/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js")}}"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-                        @if(!check_link('course'))
+                        {{-- @if(!check_link('course')) --}}
                         <script src="https://cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
                         {{-- <script src="//cdn.ckeditor.com/4.14.1/basic/ckeditor.js"></script> --}}
                         <script>
                         CKEDITOR.replaceClass = 'ckeditor';
                         </script>
-                        @endif  
+                        {{-- @endif   --}}
                         <script type="text/javascript">
                         function change_theme_func(theme)
                         {

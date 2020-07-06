@@ -23,7 +23,7 @@
 
 <section class="experts-in">
     <div class="container">
-        <div class="row">
+        <div class="row d-none d-sm-flex">
             @foreach ($Experts as $Expert)
                 <div class="col-sm-6 col-md-4">
                     <article class="card">
