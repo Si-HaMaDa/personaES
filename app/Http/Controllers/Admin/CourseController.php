@@ -75,14 +75,13 @@ class CourseController extends Controller
              'photo'=>trans('admin.photo'),
 
               ]);
-        
               if(request()->hasFile('photo')){
                     $data['photo'] = it()->upload('photo','Course');
                 }
             $Course = new Course;
             $Course->titel = $data['titel'];
             $Course->des = $data['des'];
-            $Course->photo = $data['photo'];
+            $Course->mini_des = $data['mini_des'];
             $Course->save();
             $Course->Groups()->createMany([
                 [
