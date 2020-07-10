@@ -84,7 +84,7 @@
                         <a class="nav-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#getInTouch">contact us</a>
                     </li>
                     <li class="nav-item cart">
-                        <a class="nav-link" href="{{url('cart')}}"><i class="fas fa-shopping-cart"></i><span class="product-number">0</span></a>
+                        <a class="nav-link" href="{{url('cart')}}"><i class="fas fa-shopping-cart"></i><span class="product-number" id="product-number">{{CartCount()}}</span></a>
                     </li>
                 </ul>
                 

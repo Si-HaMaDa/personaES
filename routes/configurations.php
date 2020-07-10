@@ -1,4 +1,6 @@
 <?php
+use App\Model\Cart;
+
 \Config::set('filesystems.disks.public.url', url('storage'));
 //return dd(config('filesystems.disks.public.url'));
 ////// direction Function /////////////////////
@@ -83,6 +85,44 @@ if (!function_exists('check_link')) {
 				}
 		}
 }
+}
+if (!function_exists('getUserIP')) {
+	function getUserIP()
+	{
+			// Get real visitor IP behind CloudFlare network
+			if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+							$_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+							$_SERVER['HTTP_CLIENT_IP'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+			}
+			$client  = @$_SERVER['HTTP_CLIENT_IP'];
+			$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+			$remote  = $_SERVER['REMOTE_ADDR'];
+
+			if(filter_var($client, FILTER_VALIDATE_IP))
+			{
+					$ip = $client;
+			}
+			elseif(filter_var($forward, FILTER_VALIDATE_IP))
+			{
+					$ip = $forward;
+			}
+			else
+			{
+					$ip = $remote;
+			}
+
+			return $ip;
+	}
+}
+
+
+if (!function_exists('CartCount')) {
+	function CartCount(){
+
+		$Cart = Cart::where('ip' , getUserIP() )->with('Product')->get();
+
+		return $Cart->count();
+	}
 }
 
 
