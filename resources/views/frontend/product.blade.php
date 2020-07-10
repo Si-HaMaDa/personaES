@@ -49,7 +49,7 @@
                             <section class="card-body">
                                 <h5 class="card-title">{{$Product->title}}</h5>
                                 <p class="card-text">
-                                    {!!Product->des!!}
+                                    {!!$Product->des!!}
                                 </p>
                             </section>
                         </div>
