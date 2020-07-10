@@ -57,7 +57,7 @@
                     <article class="card">
                         <div class="card-wrapper row">
                             <div class="col-lg-3 card-left-img">
-                                <img class="card-img" src="{{ it()->url($Course->img) }}" alt="productTitle">
+                                <img class="card-img" src="{{ it()->url($Product->img) }}" alt="productTitle">
                             </div>
                             <section class="col-lg-9 pt-3 pt-lg-0 card-bottom d-flex flex-column justify-content-around">
                                 <div>
