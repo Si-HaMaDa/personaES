@@ -1,5 +1,5 @@
-    <!-- Top panel - contact info -->
-    <address id="topPanel" class="top-panel">
+
+     <address id="topPanel" class="top-panel">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-6 col-md-3 col-xl-2">
@@ -19,4 +19,3 @@
             </div>
         </div>
     </address>
-     <!-- END Top panel - contact info -->
