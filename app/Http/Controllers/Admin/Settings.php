@@ -128,6 +128,10 @@ class Settings extends Controller {
 		if (request()->hasFile('register_img')) {
 			$data['register_img'] = it()->upload('register_img', 'setting');
 		}
+		if (request()->hasFile('cart_img')) {
+			$data['cart_img'] = it()->upload('cart_img', 'setting');
+		}
+		
 		if (request()->hasFile('experts_in_img')) {
 			$data['experts_in_img'] = it()->upload('experts_in_img', 'setting');
 		}
