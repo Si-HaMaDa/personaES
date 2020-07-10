@@ -47,6 +47,13 @@ Route::namespace('Frontend')->group(function () {
         return 'Hello World';
     });
 
+    Route::get('migrate-fersh', function () {
+        Artisan::call("migrate:fresh");
+        Artisan::call("db:seed");
+        return 'Hello World';
+    });
+
+
     
     
 });
