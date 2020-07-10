@@ -137,7 +137,7 @@
             
             <nav class="navbar d-none d-lg-block">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="navbar-link internal-link" href="{{url('/')}}">home</a></li>
+                    <li class="nav-item"><a class="navbar-link " href="{{url('/')}}">home</a></li>
                     <li class="nav-item"><a class="navbar-link" href="{{url('/about-us')}}">about us</a></li>
                     <li class="nav-item"><a class="navbar-link" href="{{url('/our-courses')}}">courses</a></li>
                     <li class="nav-item"><a class="navbar-link" href="{{url('/product')}}">products</a></li>
