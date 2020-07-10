@@ -52,13 +52,13 @@
                         <li class="filter-item">
                             <a href="{{url('our-courses')}}" class="filter-link main-btn btn-hover ">all</a>
                         </li>
-                        @foreach ($Courses as $Course)
+                        @foreach ($Courses as $Courses)
                         @php
-                            $Group = $Course->GetGroupByDate();
+                            $Group = $Courses->GetGroupByDate();
                         @endphp
                         @if ($Group != false)
                             <li class="filter-item">
-                                <a href="{{url('our-courses')}}/{{$Course->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover @if($Course->id == $Course->id) active @endif">{{$Course->titel}}</a>
+                                <a href="{{url('our-courses')}}/{{$Courses->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover @if($Course->id == $Courses->id) active @endif">{{$Courses->titel}}</a>
                             </li>
                         @endif
                         @endforeach
