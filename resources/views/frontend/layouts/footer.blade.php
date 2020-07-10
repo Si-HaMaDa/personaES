@@ -136,20 +136,20 @@
             <h2>{{trans('admin.persona_international')}}</h2>
             
             <nav class="navbar d-none d-lg-block">
-                <ul class="navbar-nav ">
-                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#topPanel">home</a></li>
-                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#discoverMe">about</a></li>
-                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#ourCourses">courses</a></li>
-                    <li class="nav-item"><a class="navbar-link" href="#">products</a></li>
-                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#simpleEvents">events</a></li>
-                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#latestNews">news</a></li>
-                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#simpleEvents">testimonials</a></li>
-                    <li class="nav-item"><a class="navbar-link @if (active_link_f(null,true)) internal-link @endif" href="#getInTouch">contact us</a></li>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="navbar-link internal-link" href="{{url('/')}}">home</a></li>
+                    <li class="nav-item"><a class="navbar-link" href="{{url('/about-us')}}">about us</a></li>
+                    <li class="nav-item"><a class="navbar-link" href="{{url('/our-courses')}}">courses</a></li>
+                    <li class="nav-item"><a class="navbar-link" href="{{url('/product')}}">products</a></li>
+                    <li class="nav-item"><a class="navbar-link" href="{{url('/events-details')}}">events</a></li>
+                    <li class="nav-item"><a class="navbar-link" href="{{url('/experts-in')}}">experts in</a></li>
+                    <li class="nav-item"><a class="navbar-link" href="{{url('/our-clients')}}">our clients</a></li>
                 </ul>
+     
             </nav>
             <p>
                 
-
+          
 
 
                 <a href="{{url('/privacy-policy')}}">privacy policy</a> - <a href="{{url('/refund-policy')}}">privacy policy</a> - <a href="{{url('/legal-trademark')}}">lega trademark and copy rights</a> - <a href="{{url('/terms-use')}}">terms of use</a>
