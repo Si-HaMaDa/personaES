@@ -48,19 +48,19 @@ class CourseController extends Controller
             public function store()
             {
               $rules = [
-             'titel'=>'required|max:80',
-             'des'=>'required',
-             'mini_des'=>'required',
-             'price'=>'required|numeric',
-             'sessions'=>'required|numeric',
-             'duration_num'=>'required|numeric',
-             'duration_dis'=>'required',
-             'strat_at'=>'date|date_format:Y-m-d h:i:s|after:today',
-             'attends'=>'required|numeric',
-             'photo'=>'required|'.it()->image().'',
-             'time'=>'required',
-             
-                   ];
+                'titel'=>'required|max:80',
+                'des'=>'required|max:500',
+                'mini_des'=>'required|max:255',
+                'price'=>'required|numeric|min:1',
+                'sessions'=>'required|numeric|min:1|max:20',
+                'duration_num'=>'required|numeric|min:1',
+                'duration_dis'=>'required|max:500',
+                'strat_at'=>'date|date_format:Y-m-d h:i:s|after:today',
+                'attends'=>'required|numeric|min:1|max:20',
+                'photo'=>'required|'.it()->image().'',
+                'time'=>'required',
+                
+                ];
               $data = $this->validate(request(),$rules,[],[
              'titel'=>trans('admin.titel'),
              'des'=>trans('admin.des'),
@@ -163,12 +163,12 @@ class CourseController extends Controller
             public function insertGroups($id)
             {
                 $rules = [
-                    'price'=>'required|numeric',
-                    'sessions'=>'required|numeric',
-                    'duration_num'=>'required|numeric',
+                    'price'=>'required|numeric|min:1',
+                    'sessions'=>'required|numeric|min:1|max:20',
+                    'duration_num'=>'required|numeric|min:1|max:20',
                     'duration_dis'=>'required',
                     'strat_at'=>'date|date_format:Y-m-d h:i:s|after:today',
-                    'attends'=>'required|numeric',
+                    'attends'=>'required|numeric|min:1|max:20',
                     'time'=>'required',
                 ];
                 $data = $this->validate(request(),$rules,[],[
@@ -180,6 +180,10 @@ class CourseController extends Controller
                     'attends'=>trans('admin.attends'),
                     'time'=>trans('admin.time'),
                 ]);
+
+
+
+
                 $Course =  Course::find($id);
                 $Course->Groups()->createMany([
                     [
@@ -218,12 +222,15 @@ class CourseController extends Controller
             public function update($id)
             {
                 $rules = [
-             'titel'=>'required',
-             'des'=>'required',
-             'mini_des'=>'required',
-            'photo'=>''.it()->image().'',
+             'titel'=>'required|max:80',
+             'des'=>'required|max:500',
+             'mini_des'=>'required|max:255',
+             'photo'=>''.it()->image().'',
 
-                         ];
+                ];
+
+            
+                
              $data = $this->validate(request(),$rules,[],[
              'titel'=>trans('admin.titel'),
              'des'=>trans('admin.des'),

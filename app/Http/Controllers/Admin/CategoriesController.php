@@ -45,7 +45,7 @@ class CategoriesController extends Controller
             public function store()
             {
               $rules = [
-             'name'=>'required',
+             'name'=>'required|max:80',
 
                    ];
               $data = $this->validate(request(),$rules,[],[
@@ -93,9 +93,9 @@ class CategoriesController extends Controller
             public function update($id)
             {
                 $rules = [
-             'name'=>'required',
+                    'name'=>'required|max:80',
 
-                         ];
+                ];
              $data = $this->validate(request(),$rules,[],[
              'name'=>trans('admin.name'),
                    ]);
