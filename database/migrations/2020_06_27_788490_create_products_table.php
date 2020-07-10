@@ -16,10 +16,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('img');
-            $table->longtext('min_des');
-            $table->longtext('des');
+            $table->string('title')->nullable();
+            $table->string('img')->nullable();
+            $table->longtext('min_des')->nullable();
+            $table->longtext('note')->nullable();
+            $table->longtext('des')->nullable();
             $table->longtext('pdf_files')->nullable();
             $table->bigInteger('piece_price');
             $table->enum('type',['online','shipping']);

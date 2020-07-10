@@ -121,13 +121,7 @@
 
                 <section class="col-12 blockquote-section">
                     <blockquote>
-                        “Everything DiSC Workplace has been an instrumental component of our organizational development strategy. Our
-                        team has
-                        learned about their personal style and how to communicate and work more effectively with colleagues, clients,
-                        prospects
-                        and other business partners. It’s great to hear references to their DiSC style in conversations, meetings and
-                        even our
-                        Holiday Party! It’s certainly been impactful for our organization.”
+                        “{{$Product->note}}”
                     </blockquote>
                 </section>
 

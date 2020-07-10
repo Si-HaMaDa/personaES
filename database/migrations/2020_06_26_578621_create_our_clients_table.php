@@ -16,7 +16,7 @@ class CreateOurClientsTable extends Migration
     {
         Schema::create('our_clients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('logo');
 			$table->timestamps();
         });

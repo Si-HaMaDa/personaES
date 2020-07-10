@@ -76,6 +76,8 @@
         {!! Form::textarea('min_des', $product->min_des ,['class'=>'form-control','placeholder'=>trans('admin.min_des')]) !!}
     </div>
 </div>
+
+
 <br>
 <div class="form-group">
     {!! Form::label('des',trans('admin.des'),['class'=>'col-md-3 control-label']) !!}
@@ -143,7 +145,12 @@
 </div>
 <br>
 
-
+<div class="form-group">
+	{!! Form::label('note',trans('admin.note'),['class'=>'col-md-3 control-label']) !!}
+	<div class="col-md-9">
+			{!! Form::textarea('note', $product->note ,['class'=>'form-control','placeholder'=>trans('admin.note')]) !!}
+	</div>
+</div>
 
 
 <div class="form-group-item">

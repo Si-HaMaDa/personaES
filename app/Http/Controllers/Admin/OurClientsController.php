@@ -45,7 +45,7 @@ class OurClientsController extends Controller
             public function store()
             {
               $rules = [
-             'name'=>'required|string',
+             'name'=>'sometimes|nullable|string',
              'logo'=>'required|'.it()->image().'',
 
                    ];
@@ -98,7 +98,7 @@ class OurClientsController extends Controller
             public function update($id)
             {
                 $rules = [
-             'name'=>'required|string',
+             'name'=>'sometimes|nullable|string',
              'logo'=>'required|'.it()->image().'',
 
                          ];

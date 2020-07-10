@@ -19,6 +19,7 @@ protected $fillable = [
 'img',
 'min_des',
 'des',
+'note',
 'piece_price',
 'category_id',
 'type',
