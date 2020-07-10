@@ -61,7 +61,7 @@
                                     <div class="col-lg-10">
                                         <input type="hidden" name="id" value="{{$id}}">
                                         <input type="hidden" name="group_id" value="{{$group_id}}">
-                                        <input type="text" id="name" class="form-control" name="name" placeholder="full name">
+                                        <input type="text" id="name" class="form-control" value="{{old('name')}}" name="name" placeholder="full name">
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                         <label for="#email">email</label>
                                     </div>
                                     <div class="col-lg-10">
-                                        <input type="email" id="email" class="form-control" name="email" placeholder="example@domain.com">
+                                        <input type="email" id="email" class="form-control" value="{{old('email')}}" name="email" placeholder="example@domain.com">
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                         <label for="#phone">phone</label>
                                     </div>
                                     <div class="col-lg-9">
-                                        <input type="tel" id="phone" class="form-control" name="phone" placeholder="01234567891">
+                                        <input type="tel" id="phone" class="form-control" value="{{old('phone')}}" name="phone" placeholder="01234567891">
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                         <label for="#city">city</label>
                                     </div>
                                     <div class="col-lg-9">
-                                        <input type="text" id="city" class="form-control" name="city">
+                                        <input type="text" id="city" class="form-control" value="{{old('city')}}" name="city">
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                                         <label for="#country">country</label>
                                     </div>
                                     <div class="col-lg-9">
-                                        <input type="text" id="country" class="form-control" name="country" >
+                                        <input type="text" id="country" class="form-control" value="{{old('country')}}" name="country" >
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                                         <label for="#address">address</label>
                                     </div>
                                     <div class="col-lg-11">
-                                        <input type="text" id="address" class="form-control" name="address" class="form-control">
+                                        <input type="text" id="address" class="form-control" value="{{old('address')}}" name="address" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                                                 <label for="#cardOwnerName">card owner name</label>
                                             </div>
                                             <div class="col-xl-8">
-                                                <input type="text" id="cardOwnerName" class="form-control" name="cardOwnerName">
+                                                <input type="text" id="cardOwnerName" class="form-control" value="{{old('cardOwnerName')}}" name="cardOwnerName">
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +154,7 @@
                                                 <label for="#cardNumber">card number</label>
                                             </div>
                                             <div class="col-xl-8">
-                                                <input type="text" id="cardNumber" class="form-control" name="cardNumber" placeholder="enter a valid card number">
+                                                <input type="text" id="cardNumber" class="form-control" value="{{old('cardNumber')}}" name="cardNumber" placeholder="enter a valid card number">
                                             </div>
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@
                                                 <label for="#expireDate">expire date</label>
                                             </div>
                                             <div class="col-xl-8">
-                                                <input type="text" id="expireDate" class="form-control" name="expireDate" placeholder="MM/YY">
+                                                <input type="text" id="expireDate" class="form-control" value="{{old('expireDate')}}" name="expireDate" placeholder="MM/YY">
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                                 <label for="#cvc">CVC</label>
                                             </div>
                                             <div class="col-xl-8">
-                                                <input type="text" id="cvc" class="form-control" name="cvc" placeholder="CVC">
+                                                <input type="text" id="cvc" class="form-control" value="{{old('cvc')}}" name="cvc" placeholder="CVC">
                                             </div>
                                         </div>
                                     </div>

@@ -58,7 +58,7 @@
                                     <p class="course-money">
                                         <i class="fas fa-money-bill-wave"></i> <span>{{$Group->price}}</span> EGP for <span>{{$Group->sessions}}</span> session
                                     </p>
-                                    <a href="{{url('/register')."?type=courses&id=".$Group->id}}" class="register main-btn btn-hover">register</a>
+                                    <a href="{{url('/register')."?type=courses&id=".$Course->id."&group_id=".$Group->id}}" class="register main-btn btn-hover">register now</a>
                                 </section>
                             </article>
                         </div>
@@ -85,7 +85,7 @@
                                 <p class="course-money">
                                     <i class="fas fa-money-bill-wave"></i> <span>{{$Group->price}}</span> EGP for <span>{{$Group->sessions}}</span> session
                                 </p>
-                                <a href="{{url('/register')."?type=courses&id=".$Course->id."&group_id=".$Group->id}}" class="register main-btn btn-hover">register</a>
+                                <a href="{{url('/register')."?type=courses&id=".$Course->id."&group_id=".$Group->id}}" class="register main-btn btn-hover">register now</a>
                             </section>
                         </article>
                     @endif

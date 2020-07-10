@@ -185,7 +185,6 @@ class HomeController extends Controller
             }else{
                 $Group = CoursesGroup::find($group_id);
                 $Course->first();
-                
                 $now = Carbon::now();
                 if($Group->strat_at < $now || count($Group->Clients) == $Group->attends ){
                      return redirect()->back()->with('error', 'error');   
@@ -207,6 +206,8 @@ class HomeController extends Controller
                         // 'expireDate'=>,
                         // 'cvc'=>,
                     ]); 
+                    $data['Course'] = $Course->first()->toArray();
+                    $data['Group'] = $Group->toArray();
                     Mail::to(request()->email)->send(new SendMailCourses($data));
                 }
 
