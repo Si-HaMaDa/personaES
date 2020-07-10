@@ -49,7 +49,7 @@
                             <section class="card-body">
                                 <h5 class="card-title">{{$Product->title}}</h5>
                                 <p class="card-text">
-                                    {{$Product->des}}
+                                    {!!Product->des!!}
                                 </p>
                             </section>
                         </div>
@@ -78,7 +78,7 @@
                         <div class="col-md-6">
                             <h3>Features of the Workplace Profile</h3>
                             <p>
-                                {{$Product->features_workplace_des}}
+                                {!!$Product->features_workplace_des!!}
                             </p>
                         </div>
                         <div class="col-md-5">
@@ -89,7 +89,7 @@
                             <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url={{it()->url(json_decode($Product->examine_memorable_pdf, true)['url'])}}" width="640" height="480">
                             <a href="{{it()->url(json_decode($Product->examine_memorable_pdf, true)['url'])}}" class="pdf-link"><i class="far fa-file-pdf"></i>{{json_decode($Product->examine_memorable_pdf, true)['name']}}</a>
                             <p>
-                                {{$Product->examine_memorable_des}}
+                                {!!$Product->examine_memorable_des!!}
                             </p>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
 
                 <!-- purchase reports -->
 
-                <section class="col-md-5 purchase-reports ml-auto">
+                <section class="col-md-5 purchase-reports mr-auto">
                     <h3>Additional reports available for purchase</h3>
                     <ul class="purchase-reports-list">
                         @if(!empty($Product->pdf_files))

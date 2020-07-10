@@ -49,7 +49,7 @@
 <div class="form-group">
     {!! Form::label('des',trans('admin.des'),['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-9">
-        {!! Form::textarea('des',old('des'),['class'=>'form-control','placeholder'=>trans('admin.des')]) !!}
+        {!! Form::textarea('des',old('des'),['class'=>'form-control ckeditor','placeholder'=>trans('admin.des')]) !!}
     </div>
 </div>
 <br>
@@ -89,7 +89,7 @@
 <div class="form-group">
     {!! Form::label('features_workplace_des',trans('admin.features_workplace_des'),['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-9">
-        {!! Form::textarea('features_workplace_des',old('features_workplace_des'),['class'=>'form-control','placeholder'=>trans('admin.features_workplace_des')]) !!}
+        {!! Form::textarea('features_workplace_des',old('features_workplace_des'),['class'=>'form-control ckeditor','placeholder'=>trans('admin.features_workplace_des')]) !!}
     </div>
 </div>
 <br>
@@ -103,7 +103,7 @@
 <div class="form-group">
     {!! Form::label('examine_memorable_des',trans('admin.examine_memorable_des'),['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-9">
-        {!! Form::textarea('examine_memorable_des',old('examine_memorable_des'),['class'=>'form-control','placeholder'=>trans('admin.examine_memorable_des')]) !!}
+        {!! Form::textarea('examine_memorable_des',old('examine_memorable_des'),['class'=>'form-control ckeditor','placeholder'=>trans('admin.examine_memorable_des')]) !!}
     </div>
 </div>
 <br>
