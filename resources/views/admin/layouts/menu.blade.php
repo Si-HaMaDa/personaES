@@ -22,7 +22,7 @@
 </li>
 <li class="nav-item start {{active_link('testimonials','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa fa-vcard-o"></i>
+        <i class="fa fa-address-book-o"></i>
         <span class="title">{{trans('admin.testimonials')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('testimonials','open')}}"></span>
@@ -30,7 +30,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('testimonials','active open')}}  "> 
             <a href="{{aurl('testimonials')}}" class="nav-link "> 
-                <i class="fa fa-vcard-o"></i>
+                <i class="fa fa-address-book-o"></i>
                 <span class="title">{{trans('admin.testimonials')}}  </span>
                 <span class="selected"></span>
             </a>
@@ -46,7 +46,7 @@
 </li>
 <li class="nav-item start {{active_link('partners','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa "></i>
+        <i class="fa fa-font-awesome"></i>
         <span class="title">{{trans('admin.partners')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('partners','open')}}"></span>
@@ -54,7 +54,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('partners','active open')}}  "> 
             <a href="{{aurl('partners')}}" class="nav-link "> 
-                <i class="fa "></i>
+                <i class="fa fa-font-awesome"></i>
                 <span class="title">{{trans('admin.partners')}}  </span>
                 <span class="selected"></span>
             </a>
@@ -144,7 +144,7 @@
 </li>
 <li class="nav-item start {{active_link('freelesson','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa "></i>
+        <i class="fa fa-video-camera"></i>
         <span class="title">{{trans('admin.freelesson')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('freelesson','open')}}"></span>
@@ -152,7 +152,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('freelesson','active open')}}  "> 
             <a href="{{aurl('freelesson')}}" class="nav-link "> 
-                <i class="fa "></i>
+                <i class="fa fa-video-camera"></i>
                 <span class="title">{{trans('admin.freelesson')}}  </span>
                 <span class="selected"></span>
             </a>
@@ -168,7 +168,7 @@
 </li>
 <li class="nav-item start {{active_link('categories','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa "></i>
+        <i class="fa fa-th-list"></i>
         <span class="title">{{trans('admin.categories')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('categories','open')}}"></span>
@@ -176,7 +176,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('categories','active open')}}  "> 
             <a href="{{aurl('categories')}}" class="nav-link "> 
-                <i class="fa "></i>
+                <i class="fa fa-th-list"></i>
                 <span class="title">{{trans('admin.categories')}}  </span>
                 <span class="selected"></span>
             </a>
@@ -192,7 +192,7 @@
 </li>
 <li class="nav-item start {{active_link('ourclients','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa "></i>
+        <i class="fa fa-users"></i>
         <span class="title">{{trans('admin.ourclients')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('ourclients','open')}}"></span>
@@ -200,7 +200,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('ourclients','active open')}}  "> 
             <a href="{{aurl('ourclients')}}" class="nav-link "> 
-                <i class="fa "></i>
+                <i class="fa fa-users"></i>
                 <span class="title">{{trans('admin.ourclients')}}  </span>
                 <span class="selected"></span>
             </a>
@@ -216,7 +216,7 @@
 </li>
 <li class="nav-item start {{active_link('expertsin','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa "></i>
+        <i class="fa fa-th-list"></i>
         <span class="title">{{trans('admin.expertsin')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('expertsin','open')}}"></span>
@@ -224,7 +224,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('expertsin','active open')}}  "> 
             <a href="{{aurl('expertsin')}}" class="nav-link "> 
-                <i class="fa "></i>
+                <i class="fa fa-th-list"></i>
                 <span class="title">{{trans('admin.expertsin')}}  </span>
                 <span class="selected"></span>
             </a>
@@ -240,7 +240,7 @@
 </li>
 <li class="nav-item start {{active_link('product','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa "></i>
+        <i class="fa fa-briefcase"></i>
         <span class="title">{{trans('admin.product')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('product','open')}}"></span>
@@ -248,7 +248,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('product','active open')}}  "> 
             <a href="{{aurl('product')}}" class="nav-link "> 
-                <i class="fa "></i>
+                <i class="fa fa-briefcase"></i>
                 <span class="title">{{trans('admin.product')}}  </span>
                 <span class="selected"></span>
             </a>
@@ -264,7 +264,7 @@
 </li>
 <li class="nav-item start {{active_link('orders','active open')}} ">
     <a href="javascript:;" class="nav-link nav-toggle">
-        <i class="fa "></i>
+        <i class="fa fa-briefcase"></i>
         <span class="title">{{trans('admin.orders')}} </span>
         <span class="selected"></span>
         <span class="arrow {{active_link('orders','open')}}"></span>
@@ -272,7 +272,7 @@
     <ul class="sub-menu" style="{{active_link('','block')}}"> 
         <li class="nav-item start {{active_link('orders','active open')}}  "> 
             <a href="{{aurl('orders')}}" class="nav-link "> 
-                <i class="fa "></i>
+                <i class="fa fa-briefcase"></i>
                 <span class="title">{{trans('admin.orders')}}  </span>
                 <span class="selected"></span>
             </a>
