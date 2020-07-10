@@ -148,7 +148,11 @@
                 </ul>
             </nav>
             <p>
-                <a href="privacy-policy.html">privacy policy</a> - <a href="refound-policy.html">privacy policy</a> - <a href="legal_trademark_and_copyright.html">lega trademark and copy rights</a> - <a href="terms_of_use.html">terms of use</a>
+                
+
+
+
+                <a href="{{url('/privacy-policy')}}">privacy policy</a> - <a href="{{url('/refund-policy')}}">privacy policy</a> - <a href="{{url('/legal-trademark')}}">lega trademark and copy rights</a> - <a href="{{url('/terms-use')}}">terms of use</a>
             </p>
             {{-- <p><a href="{{url('privacy-policy')}}">privacy policy</a> & <a href="{{url('refund-policy')}}">refund policy</a> </p> --}}
             <p>all right received 2020 <span><i class="far fa-heart"></i></span> scale team</p>
