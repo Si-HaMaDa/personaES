@@ -29,7 +29,6 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #fff;
             height: 60vh;
             clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
 
@@ -44,6 +43,8 @@
 
         header h1 {
             text-align: center;
+            color: #fff;
+						float: right;
             font-size: 3rem;
         }
 
@@ -103,6 +104,8 @@
         }
 
         footer p {
+						float: right;
+						color: #fff;
             font-size: 20px;
             font-weight: bold;
         }
