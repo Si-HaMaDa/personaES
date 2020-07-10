@@ -149,7 +149,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <a class="logo">
+            <a href="{{url('/')}}" target="_blank" class="logo">
                 <img src="{{it()->url(setting()->logo)}}" alt="logo">
                 <span>persona <br>international</span>
             </a>

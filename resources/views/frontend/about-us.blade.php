@@ -110,7 +110,7 @@
                                                         </p>
                                                         </p>
                                                         <p>
-                                                            <a href="https://api.whatsapp.com/send?phone={{setting()->whats_number}}">
+                                                            <a target="_blank" href="https://api.whatsapp.com/send?phone={{setting()->whats_number}}">
                                                                 <i class="fab fa-whatsapp"></i> {{setting()->whats_number}}
                                                             </a>
                                                         </p>

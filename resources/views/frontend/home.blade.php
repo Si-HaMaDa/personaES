@@ -141,6 +141,57 @@
     </div>
 </section>
 
+
+    <!-- Our Numbers Section -->
+    <section class="our-numbers">
+        <div class="container-fluid">
+            <div class="row d-none d-md-flex">
+                <div class="our-number-item col-md-6 col-lg-3">
+                    <i class="fas fa-users"></i>
+                    <span class="number-value">{{setting()->trainees}}</span>
+                    <span class="title">Trainees</span>
+                </div>
+                <div class="our-number-item col-md-6 col-lg-3">
+                    <i class="fas fa-university"></i>
+                    <span class="number-value">{{setting()->lectures}}</span>
+                    <span class="title">Lectures</span>
+                </div>
+                <div class="our-number-item col-md-6 col-lg-3">
+                    <i class="fas fa-globe"></i>
+                    <span class="number-value">{{setting()->events}}</span>
+                    <span class="title">Events</span>
+                </div>
+                <div class="our-number-item col-md-6 col-lg-3">
+                    <i class="fas fa-user-tie"></i>
+                    <span class="number-value">{{setting()->company}}</span>
+                    <span class="title">Company</span>
+                </div>
+            </div>
+            <div class="our-numbers-carousel d-md-none">
+                <div class="our-number-item">
+                    <i class="fas fa-users"></i>
+                    <span class="number-value">{{setting()->trainees}}</span>
+                    <span class="title">Trainees</span>
+                </div>
+                <div class="our-number-item">
+                    <i class="fas fa-university"></i>
+                    <span class="number-value">{{setting()->lectures}}</span>
+                    <span class="title">Lectures</span>
+                </div>
+                <div class="our-number-item">
+                    <i class="fas fa-globe"></i>
+                    <span class="number-value">{{setting()->events}}</span>
+                    <span class="title">Events</span>
+                </div>
+                <div class="our-number-item">
+                    <i class="fas fa-user-tie"></i>
+                    <span class="number-value">{{setting()->company}}</span>
+                    <span class="title">Company</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
 <!-- Latest News and out Tesimonials Sections -->
 
 <section class="section-wrapper news-and-testimonials">

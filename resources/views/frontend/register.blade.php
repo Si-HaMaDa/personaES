@@ -203,7 +203,7 @@
                             <section class="modal-body">
                                 <h6>check our</h6>
                                 <p>
-                                    <a href="#">privacy policy</a> - <a href="#">refund policy</a>
+                                    <a href="{{url('/privacy-policy')}}" target="_blank">privacy policy</a> - <a href="{{url('/refund-policy')}}" target="_blank">refund policy</a>
                                 </p>
                             </section>
                             <footer class="modal-footer">

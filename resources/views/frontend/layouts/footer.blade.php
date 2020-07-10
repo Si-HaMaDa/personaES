@@ -1,3 +1,5 @@
+    @if (!active_link_f(null,true))
+  
     <!-- Our Numbers Section -->
     <section class="our-numbers">
         <div class="container-fluid">
@@ -48,7 +50,7 @@
         </div>
     </section>
 
-
+    @endif 
 
     
     <!-- Get in touch section -->
@@ -74,7 +76,7 @@
                             <a class="contact-link" href="http://maps.google.com/?q={{setting()->address}}" target="_blank"><i class="fas fa-map-marker-alt"></i>{{setting()->address}}</a>
                         </p>
                         <p>
-                            <a class="contact-link" href="tel:{{setting()->phone}}"><i class="fas fa-phone"></i >(02)-{{setting()->phone}}
+                            <a class="contact-link" target="_blank" href="tel:{{setting()->phone}}"><i class="fas fa-phone"></i >(02)-{{setting()->phone}}
                             </a>
                         </p>
                         <p>
@@ -82,11 +84,11 @@
                         </p>
                     </address>
                     <nav class="social-links">
-                        <a class="social-link" href="{{setting()->facebook}}"><i class="fab fa-facebook-f"></i></a>
-                        <a class="social-link" href="{{setting()->twitter}}"><i class="fab fa-twitter"></i></a>
-                        <a class="social-link" href="{{setting()->instagram}}"><i class="fab fa-instagram"></i></a>
-                        <a class="social-link" href="{{setting()->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-link" href="{{setting()->youtube}}"><i class="fab fa-youtube"></i></a>
+                        <a class="social-link" target="_blank" href="{{setting()->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                        <a class="social-link" target="_blank" href="{{setting()->twitter}}"><i class="fab fa-twitter"></i></a>
+                        <a class="social-link" target="_blank" href="{{setting()->instagram}}"><i class="fab fa-instagram"></i></a>
+                        <a class="social-link" target="_blank" href="{{setting()->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-link" target="_blank" href="{{setting()->youtube}}"><i class="fab fa-youtube"></i></a>
                     </nav>
                 </section>            
                 {!! Form::open(['url'=>url('/get-in-touch'),'files'=>true,'class'=>'col-md-6']) !!}
@@ -152,7 +154,7 @@
           
 
 
-                <a href="{{url('/privacy-policy')}}">privacy policy</a> - <a href="{{url('/refund-policy')}}">privacy policy</a> - <a href="{{url('/legal-trademark')}}">lega trademark and copy rights</a> - <a href="{{url('/terms-use')}}">terms of use</a>
+                <a href="{{url('/privacy-policy')}}">privacy policy</a> - <a href="{{url('/refund-policy')}}">Refund policy</a> - <a href="{{url('/legal-trademark')}}">lega trademark and copy rights</a> - <a href="{{url('/terms-use')}}">terms of use</a>
             </p>
             {{-- <p><a href="{{url('privacy-policy')}}">privacy policy</a> & <a href="{{url('refund-policy')}}">refund policy</a> </p> --}}
             <p>all right received 2020 <span><i class="far fa-heart"></i></span> scale team</p>
