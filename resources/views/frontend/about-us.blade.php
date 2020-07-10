@@ -77,7 +77,7 @@
                                             <div class="card-body">
                                                 <p class="card-text">
                                                     <ul class="education-list">
-                                                    @if (setting()->about_educatio != null && isArray(setting()->about_education))
+                                                    @if (json_decode(setting()->about_education) )
                                                         @foreach(json_decode(setting()->about_education) as $key=>$education)
                                                             <li class="education-item">{{$education}}</li>
                                                         @endforeach

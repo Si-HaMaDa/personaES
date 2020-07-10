@@ -79,7 +79,7 @@ class Settings extends Controller {
 			'about_company' => '',
 			'register_img'=> 'sometimes|nullable|'.it()->image(),
 			'experts_in_img'=> 'sometimes|nullable|'.it()->image(),
-			'free_lessons_img'=> 'sometimes|nullable|'.it()->video(),
+			'free_lessons_img'=> 'sometimes|nullable|'.it()->image(),
 			'our_clients_img'=> 'sometimes|nullable|'.it()->image(),
 			'courses_img'=> 'sometimes|nullable|'.it()->image(),
 		];

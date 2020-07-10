@@ -2,7 +2,7 @@
 @section('content')
 
     <!-- Header -->
-    <header class="our-courses-header" style="background-image: url('{{it()->url(setting()->courses_img)}}')">
+    <header class="our-courses-header" style="background-image: url('{{it()->url(setting()->our_courses_photo)}}')">
         <div class="overlay"></div>
         <div class="container">
             <div class="header-wrapper">
