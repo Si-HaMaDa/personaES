@@ -82,9 +82,10 @@ class Settings extends Controller {
 			'free_lessons_img'=> 'sometimes|nullable|'.it()->image(),
 			'our_clients_img'=> 'sometimes|nullable|'.it()->image(),
 			'courses_img'=> 'sometimes|nullable|'.it()->image(),
+			'cart_img'=> 'sometimes|nullable|'.it()->image(),
 		];
 		
-
+		
 		$data = $this->validate(request(), $rules, [], [
 				// 'sitename_ar'    => trans('admin.sitename_ar'),
 				'sitename_en'    => trans('admin.sitename_en'),

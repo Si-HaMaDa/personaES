@@ -58,7 +58,11 @@
                         </div>
                     </div>
                     <div class="col-lg-2 buttons-holder">
-                        <button type="button" onclick="func()" class="main-btn cancel">cancel</a>
+                        <form action=""></form>
+                        {!! Form::open(['url'=>route('delete.cart' , 0)]) !!}
+                            <button type="submit"  class="main-btn cancel">cancel</a>
+                        {!! Form::close() !!}
+            
                             @if($Cart->count() != 0)
                                 <button type="button" onclick="window.location.replace('{{url('/register').'?type=product'}}')" class="main-btn buy-now">buy now</button>
                             @else
@@ -68,7 +72,7 @@
                 </div>
             </div>
         </form>
-
+        
 
 
 

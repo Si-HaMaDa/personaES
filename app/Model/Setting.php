@@ -34,6 +34,7 @@ class Setting extends Model {
 
 		'home_title',
 		'home_des',
+		'cart_img',
 
 
 		

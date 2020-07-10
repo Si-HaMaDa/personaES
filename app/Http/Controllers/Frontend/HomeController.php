@@ -346,6 +346,17 @@ class HomeController extends Controller
 
     public function deleteCart($id)
     {
+        if($id == 0){
+            $Cart = Cart::where('ip' , $this->getUserIP() )->get();
+            if($Cart->count() != 0){
+                $Cart->each->delete();
+                session()->flash('success',"Removed From Cart");
+                return redirect(url('/cart'));
+            }else{
+                session()->flash('error',"Not found Product");
+                return redirect(url('/cart'));
+            }
+        }
         $Product = Product::findOrFail(request()->product_id);
         $Cart = Cart::where('ip' , $this->getUserIP() )->where( 'product_id' , request()->product_id)->where('id', $id)->get();
         if($Cart->count() != 0){

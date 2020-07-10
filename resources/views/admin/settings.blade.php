@@ -441,6 +441,7 @@
                             <br>
 
                             
+                            
                             <div class="form-group">
                                 {!! Form::label('about_info',trans('admin.about_info'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">
@@ -501,6 +502,18 @@
                                 </div>
                             </div>
                             <br>
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('cart_img',trans('admin.cart_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('cart_img',['class'=>'form-control','placeholder'=>trans('admin.cart_img')]) !!}
+                                    @if(!empty(setting()->cart_img))
+                                     <img src="{{ it()->url(setting()->cart_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+                            
+
                             
                         </div>
 
@@ -519,6 +532,7 @@
                             <br>
                             
                         </div>
+
                         <div class="tab-pane fade" id="pills-free-lessons" role="tabpanel" aria-labelledby="pills-free-lessons-tab">
                             <div class="form-group col-md-12 col-lg-12">
                                 {!! Form::label('free_lessons_img',trans('admin.free_lessons_img'),['class'=>'col-md-3 control-label']) !!}
