@@ -77,8 +77,8 @@
                     <li class="nav-item">
                         <a class="nav-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#latestNews">news</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#ourTestimonials">our clients</a>
+                    <li class="nav-item {{active_link_f('our-clients','active')}}">
+                        <a class="nav-link " href="{{url('/our-clients')}}">our clients</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @if (active_link_f(null,true)) internal-link @endif" href="@if (!active_link_f(null,true)){{url('/')}}@endif#getInTouch">contact us</a>
