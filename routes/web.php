@@ -38,6 +38,7 @@ Route::namespace('Frontend')->group(function () {
     Route::post('events-check/{id}', 'HomeController@EventCheck')->name('event.check');
     Route::post('add-cart/{id}', 'HomeController@AddCart')->name('add.cart');
     Route::post('delete-cart/{id}', 'HomeController@deleteCart')->name('delete.cart');
+    Route::post('get-in-touch', 'HomeController@getInTouch')->name('getInTouch');
     Route::get('cart', 'HomeController@cart');
     Route::get('free-lessons-list/{id}', 'HomeController@FreeLessonsList');
     Route::post('search', 'HomeController@Search');
@@ -46,7 +47,7 @@ Route::namespace('Frontend')->group(function () {
 
         return 'Hello World';
     });
-
+    
     Route::get('migrate-fersh', function () {
         Artisan::call("migrate:fresh");
         Artisan::call("db:seed");

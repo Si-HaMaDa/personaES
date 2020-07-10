@@ -15,6 +15,7 @@ use App\Model\Clients;
 use App\Mail\SendMailCourses;
 use App\Mail\onlineProductThanks;
 use App\Mail\shippingProductThanks;
+use App\Mail\getInTouch;
 
 use App\Model\OurClient;
 use App\Model\ExpertsIn;
@@ -127,20 +128,22 @@ class HomeController extends Controller
             'name'=>'required|max:50',
             'email'=>'required|email',
             'phone'=>'required|min:10|numeric',
-            'Subject'=>'required',
+            'subject'=>'required',
             'message'=>'required',
             ];
+    
+            
             $data = $this->validate(request(),$rules,[],[
             'name'=>trans('admin.name'),
             'email'=>trans('admin.email'),
             'phone'=>trans('admin.phone'),
-            'Subject'=>trans('admin.Subject'),
+            'subject'=>trans('admin.subject'),
             'message'=>trans('admin.message'),
         ]);
 
-        Mail::to(request()->email)->send(new getInTouch($data));
+        Mail::to(setting()->email)->send(new getInTouch($data));
 
-        session()->flash('success',trans('admin.added'));
+        session()->flash('success',trans('admin.sended'));
         return redirect(url('/'));
     }
 

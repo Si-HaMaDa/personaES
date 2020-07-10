@@ -29,7 +29,6 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #fff;
             height: 60vh;
             clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
 
@@ -44,6 +43,8 @@
 
         header h1 {
             text-align: center;
+            color: #fff;
+						float: right;
             font-size: 3rem;
         }
 
@@ -103,6 +104,8 @@
         }
 
         footer p {
+            float: right;
+            color: #fff;
             font-size: 20px;
             font-weight: bold;
         }
@@ -126,26 +129,26 @@
         <div class="container">
             <h2>Messege</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem iure quam natus illo, quos eius! Amet alias quisquam laboriosam fuga, labore animi pariatur vero, quidem itaque natus aliquam sequi eveniet
+                {!! $data['massege'] !!}
             </p>
         </div>
     </section>
 
-    <section>
+    {{-- <section>
         <div class="container">
             <h2>note</h2>
             <p>
-							{!! $data['massege'] !!}
+                    
             </p>
         </div>
-    </section>
+    </section> --}}
 
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <a class="logo">
-                <img src="https://c.top4top.io/p_1647ra0i61.png" alt="logo">
+                <img src="{{it()->url(setting()->logo)}}" alt="logo">
                 <span>persona <br>international</span>
             </a>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>

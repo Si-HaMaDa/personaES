@@ -88,29 +88,29 @@
                         <a class="social-link" href="{{setting()->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-link" href="{{setting()->youtube}}"><i class="fab fa-youtube"></i></a>
                     </nav>
-                </section>
-                <form class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Name">
+                </section>            
+                {!! Form::open(['url'=>url('/get-in-touch'),'files'=>true,'class'=>'col-md-6']) !!}
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" value="{{old('name')}}" name="name" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="tel" value="{{old('phone')}}" name="phone" class="form-control" placeholder="Phone">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="email" value="{{old('email')}}" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" value="{{old('subject')}}" name="subject" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="col-12 form-group">
+                                <textarea class="form-control" name="message" placeholder="Your Message" rows="6">{{old('message')}}</textarea>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <button class="main-btn btn-hover" type="submit">Submit</button>
+                            </div>
                         </div>
-                        <div class="col-md-6 form-group">
-                            <input type="tel" name="phone" class="form-control" placeholder="Phone">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <input type="text" name="subject" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="col-12 form-group">
-                            <textarea class="form-control" placeholder="Your Message" rows="6"></textarea>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <button class="main-btn btn-hover" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </form>
+                {!! Form::close() !!}
             </div>
         </div>
     </section>
@@ -213,8 +213,8 @@
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: '{{  $errors }}',
+                title: '{{  $errors->all()[0] }}',
+                text: '{{  $errors->all()[0] }}',
                 // footer: '<a href>Why do I have this issue?</a>'
             })
         </script>
@@ -222,6 +222,7 @@
         
     @endif
     @if(session()->has('errors'))
+
         <script>
             Swal.fire({
                 icon: 'error',
