@@ -105,7 +105,7 @@ class TestimonialsController extends Controller
              'name'=>'required|string',
              'job'=>'required',
              'message'=>'required',
-             'photo'=>'required|'.it()->image().'',
+             'photo'=>'sometimes|nullable|'.it()->image().'',
 
                          ];
              $data = $this->validate(request(),$rules,[],[

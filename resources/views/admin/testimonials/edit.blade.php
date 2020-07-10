@@ -70,7 +70,7 @@
 <div class="form-group">
     {!! Form::label('message',trans('admin.message'),['class'=>'col-md-3 control-label']) !!}
     <div class="col-md-9">
-        {!! Form::textarea('message', $testimonials->message ,['class'=>'form-control ckeditor','placeholder'=>trans('admin.message')]) !!}
+        {!! Form::textarea('message', $testimonials->message ,['class'=>'form-control ','placeholder'=>trans('admin.message')]) !!}
     </div>
 </div>
 <br>

@@ -106,7 +106,7 @@ return
 	'icon' => 'Website Icon Favicon',
 	'system_status' => 'WebSite Status',
 	'system_message' => 'Maintenance Message',
-	'testimonials' => '',
+	'testimonials' => 'Testimonials',
 	'Subject' => '',
 	'cardOwnerName' => '',
 	'cardNumber' => '',
@@ -203,4 +203,5 @@ return
 	'translate' => 'Translate',
 	'persona_international' => 'Persona International',
 	'tstd' => 'stdtsd',
+	'our_testimonials' => 'Our Testimonials',
 ];

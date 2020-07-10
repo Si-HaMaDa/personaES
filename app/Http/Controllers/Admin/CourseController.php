@@ -48,7 +48,7 @@ class CourseController extends Controller
             public function store()
             {
               $rules = [
-             'titel'=>'required',
+             'titel'=>'required|max:80',
              'des'=>'required',
              'mini_des'=>'required',
              'price'=>'required|numeric',
@@ -57,7 +57,7 @@ class CourseController extends Controller
              'duration_dis'=>'required',
              'strat_at'=>'date|date_format:Y-m-d h:i:s|after:today',
              'attends'=>'required|numeric',
-             'photo'=>''.it()->image().'',
+             'photo'=>'required|'.it()->image().'',
              'time'=>'required',
              
                    ];
@@ -76,12 +76,13 @@ class CourseController extends Controller
 
               ]);
               if(request()->hasFile('photo')){
-                    $data['photo'] = it()->upload('photo','Course');
+                  $data['photo'] = it()->upload('photo','Course');
                 }
             $Course = new Course;
             $Course->titel = $data['titel'];
             $Course->des = $data['des'];
             $Course->mini_des = $data['mini_des'];
+            $Course->photo = $data['photo'];
             $Course->save();
             $Course->Groups()->createMany([
                 [
