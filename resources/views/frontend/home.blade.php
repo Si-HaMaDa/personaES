@@ -87,10 +87,12 @@
                         <time datetime="{{date('d M yy h:i a', strtotime($Group->strat_at))}}">{{date('d', strtotime($Group->strat_at))}} <br> {{date('M', strtotime($Group->strat_at))}}<span class="time">{{date('h:i', strtotime($Group->strat_at))}} <br> {{date('a', strtotime($Group->strat_at))}}</span></time>
                     </section>
                     <section class="card-body">
-                        <h3 class="card-title">{{$Course->titel}}</h3>
-                        <p class="card-text">
-                        {!! $Course->mini_des !!}
-                        </p>
+                        <section class="text-container">
+                            <h3 class="card-title">{{$Course->titel}}</h3>
+                            <p class="card-text">
+                                {!! $Course->mini_des !!}
+                            </p>
+                        </section>
                         <p class="course-start-time">
                             <i class="far fa-clock"></i> starts at <time datetime="{{date('d M yy h:i a', strtotime($Group->strat_at))}}"> <span>{{date('d', strtotime($Group->strat_at))}}</span> {{date('M yy', strtotime($Group->strat_at))}} , <span class="time">{{date('h:i', strtotime($Group->strat_at))}}</span> {{date('a', strtotime($Group->strat_at))}}</time>
                         </p>
@@ -119,7 +121,7 @@
 
 <section id="simpleEvents" class="events">
     <div class="container">
-        <h2 class="section-title mb-4"><span class="title">{{trans('admin.upcomming_events')}}</span></h2>
+        <h2 class="section-title mb-4"><span class="title">{{trans('admin.simple_events')}}</span></h2>
         <div class="events-slider">
             @foreach ($Events as $Event)
                 
@@ -213,10 +215,12 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <section class="card-body p-3">
-                                            <h3 class="card-title">{{$News->titel}}</h3>
-                                            <p class="card-text">
-                                            {{$News->subject}}
-                                            </p>
+                                            <section class="text-container">
+                                                <h3 class="card-title">{{$News->titel}}</h3>
+                                                <p class="card-text">
+                                                    {{$News->subject}}
+                                                </p>
+                                            </section>
                                             <time datetime="3 oct 2016 11:00"><i class="far fa-clock"></i> {{date('d M yy h:i a', strtotime($News->created_at))}}</time>
                                         </section>
                                     </div>

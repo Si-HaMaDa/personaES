@@ -47,12 +47,14 @@
                             <article id="cardTitle1" class="card show">
                                 <img src="{{ it()->url($Course->photo) }}" class="card-img-top" alt="{{$Course->titel}}">
                                 <section class="card-body">
-                                    <a href="{{url('our-courses')}}/{{$Course->id}}">
-                                        <h3 class="card-title">{{$Course->titel}}</h3>
-                                        <p class="card-text">
-                                            {!! $Course->mini_des !!}
-                                        </p>
-                                    </a>
+                                    <section class="text-container nicescroll">
+                                        <a href="{{url('our-courses')}}/{{$Course->id}}">
+                                            <h3 class="card-title">{{$Course->titel}}</h3>
+                                            <p class="card-text">
+                                                {!! $Course->mini_des !!}
+                                            </p>
+                                        </a>
+                                    </section>
                                
                                     <p class="course-start-time">
                                         <i class="far fa-clock"></i> starts at <time datetime="{{date('d M yy h:i a', strtotime($Group->strat_at))}}"> <span>{{date('d', strtotime($Group->strat_at))}}</span> {{date('M yy', strtotime($Group->strat_at))}} , <span class="time">{{date('h:i', strtotime($Group->strat_at))}}</span> {{date('a', strtotime($Group->strat_at))}}</time>
@@ -76,12 +78,14 @@
                         <article id="cardTitle1" class="card">
                             <img src="{{ it()->url($Course->photo) }}" class="card-img-top" alt="{{$Course->titel}}">
                             <section class="card-body">
-                                <a href="{{url('our-courses')}}/{{$Course->id}}">
-                                    <h3 class="card-title">{{$Course->titel}}</h3>
-                                    <p class="card-text">
-                                        {!! $Course->mini_des !!}
-                                    </p>
-                                </a>
+                                <section class="text-container nicescroll">
+                                    <a href="{{url('our-courses')}}/{{$Course->id}}">
+                                        <h3 class="card-title">{{$Course->titel}}</h3>
+                                        <p class="card-text">
+                                            {!! $Course->mini_des !!}
+                                        </p>
+                                    </a>
+                                </section>
                              
                                 <p class="course-start-time">
                                     <i class="far fa-clock"></i> starts at <time datetime="{{date('d M yy h:i a', strtotime($Group->strat_at))}}"> <span>{{date('d', strtotime($Group->strat_at))}}</span> {{date('M yy', strtotime($Group->strat_at))}} , <span class="time">{{date('h:i', strtotime($Group->strat_at))}}</span> {{date('a', strtotime($Group->strat_at))}}</time>
