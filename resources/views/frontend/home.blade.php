@@ -130,10 +130,12 @@
                 <section class="card-body p-1 p-lg-2">
                     <time datetime="{{$Event->date}}">{{$Event->date}}</time>
                     <time>{{date('h:i a', strtotime($Event->time))}}</time>
-                    <h3 class="card-title">{{$Event->title}}</h3>
-                    <p class="card-text">
-                        {{$Event->des}}
-                    </p>
+                    <section class="text-container">
+                        <h3 class="card-title">{{$Event->title}}</h3>
+                        <p class="card-text">
+                            {{$Event->des}}
+                        </p>
+                    </section>
                     <a href="{{url('/events-details')}}/" class="main-btn btn-hover">{{trans('admin.read_more')}}</a>
                 </section>
             </article>
