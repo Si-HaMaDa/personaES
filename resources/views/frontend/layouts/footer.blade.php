@@ -198,7 +198,7 @@
     <script src="{{url('frontend')}}/dist/js/jquery.card.js"></script>
     <!-- Main app js file -->
     <!-- Nice Scroll -->
-    <script src="dist/js/jquery.nicescroll.min.js"></script>
+    <script src="{{url('frontend')}}/dist/js/jquery.nicescroll.min.js"></script>
     <!-- Main app js file -->
     <script src="{{url('frontend')}}/dist/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
