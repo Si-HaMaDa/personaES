@@ -40,10 +40,12 @@
                             <time datetime="{{$Event->date}}">{{$Event->date}}</time>
                             <time>{{date('h:i a', strtotime($Event->time))}}</time>
                         </div>
-                        <h3 class="section-title card-title"><span class="title">{{$Event->title}}</span></h3>
-                        <p class="card-text">
-                            {{$Event->des}}
-                        </p>
+                        <section class="text-container">
+                            <h3 class="section-title card-title"><span class="title">{{$Event->title}}</span></h3>
+                            <p class="card-text">
+                                {{$Event->des}}
+                            </p>
+                        </section>
                         <section class="card-footer ">
                             <span class="show"><i class="far fa-user"></i><span class="check-in-num">{{count($Event->Checks)}}</span></span>
                             @if(date("Y-m-d") > $Event->date)

@@ -46,11 +46,13 @@
                             <article class="card" data-url="{{url('/free-lessons-list')}}/{{$FreeLesson->id}}" data-slide-index="{{$FreeLesson->id}}">
                                     <img class="card-img-top" src="https://img.youtube.com/vi/{{getYoutubeIdUrl($FreeLesson->v_url)}}/sddefault.jpg" alt="{{$FreeLesson->titel}}">
                                     <section class="card-body">
-                                        <h3 class="card-title"><span class="title">{{$FreeLesson->titel}}</span></h3>
-                                        <p class="card-text">
-                                            {{$FreeLesson->des}}
-                                        </p>
-                                        <p>
+                                        <section class="text-container">
+                                            <h3 class="card-title"><span class="title">{{$FreeLesson->titel}}</span></h3>
+                                            <p class="card-text">
+                                                {{$FreeLesson->des}}
+                                            </p>
+                                        </section>
+                                        <p class="date">
                                             <i class="far fa-clock"></i>
                                             <time datetime="21:00 12 May 2020">09:00 PM - 12 May 2020
                                         </p>

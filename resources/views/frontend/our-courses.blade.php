@@ -22,7 +22,7 @@
             <nav class="filter-nav">
                 <ul class="filter-list">
                         <li class="filter-item">
-                            <a href="{{url('our-courses')}}" class="filter-link main-btn btn-hover active">all</a>
+                            <a href="{{url('our-courses')}}" data-toggle="tooltip" title="All" class="filter-link main-btn btn-hover active">all</a>
                         </li>
                     @foreach ($Courses as $Course)
                     @php
@@ -30,7 +30,7 @@
                     @endphp
                     @if ($Group != false)
                         <li class="filter-item">
-                            <a href="{{url('our-courses')}}/{{$Course->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover">{{$Course->titel}}</a>
+                            <a href="{{url('our-courses')}}/{{$Course->id}}" data-card="cardTitle1"  data-toggle="tooltip" title="{{$Course->titel}}" class="filter-link main-btn btn-hover">{{$Course->titel}}</a>
                         </li>
                     @endif
                     @endforeach

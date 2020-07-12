@@ -242,8 +242,10 @@
                     <div class="our-testimonils-slider">
                       @foreach ($Testimonials as $Testimonial)
                           <article class="card">
-                              <img src="{{it()->url($Testimonial->photo)}}" class="card-img-top" alt="events-1">
-                              <section class="card-body p-1 p-lg-2">
+                            <section class="card-img">
+                                <img src="{{it()->url($Testimonial->photo)}}" class="card-img-top" alt="events-1">
+                            </section>
+                            <blockquote class="blockquote card-body p-1 p-lg-2 text-center">
                                   <blockquote class="blockquote text-center">
                                       <p class="card-text mb-0">
                                           {{$Testimonial->message}}
@@ -255,7 +257,7 @@
                                           <span class="job-title">{{$Testimonial->job}}</span>
                                       </footer>
                                   </blockquote>
-                              </section>
+                            </blockquote>
                           </article>
                         @endforeach
                     </div>

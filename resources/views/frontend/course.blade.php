@@ -50,7 +50,7 @@
                 <ul class="filter-list">
                  
                         <li class="filter-item">
-                            <a href="{{url('our-courses')}}" class="filter-link main-btn btn-hover ">all</a>
+                            <a href="{{url('our-courses')}}" data-toggle="tooltip" title="All" class="filter-link main-btn btn-hover ">all</a>
                         </li>
                         @foreach ($Courses as $Courses)
                         @php
@@ -58,7 +58,7 @@
                         @endphp
                         @if ($Group != false)
                             <li class="filter-item">
-                                <a href="{{url('our-courses')}}/{{$Courses->id}}" data-card="cardTitle1" class="filter-link main-btn btn-hover @if($Course->id == $Courses->id) active @endif">{{$Courses->titel}}</a>
+                                <a href="{{url('our-courses')}}/{{$Courses->id}}" data-card="cardTitle1" data-toggle="tooltip" title="{{$Courses->titel}}" class="filter-link main-btn btn-hover @if($Course->id == $Courses->id) active @endif">{{$Courses->titel}}</a>
                             </li>
                         @endif
                         @endforeach
