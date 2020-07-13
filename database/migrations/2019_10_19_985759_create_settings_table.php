@@ -52,7 +52,7 @@ class CreateSettingsTable extends Migration
             $table->string('about_me_photo')->nullable();
             $table->string('about_company_photo')->nullable();
             $table->string('cart_img')->nullable();
-            
+            $table->string('mail_img')->nullable();
             
             $table->string('home_title')->nullable();
             $table->string('home_des')->nullable();

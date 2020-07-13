@@ -83,6 +83,7 @@ class Settings extends Controller {
 			'our_clients_img'=> 'sometimes|nullable|'.it()->image(),
 			'courses_img'=> 'sometimes|nullable|'.it()->image(),
 			'cart_img'=> 'sometimes|nullable|'.it()->image(),
+			'mail_img'=> 'sometimes|nullable|'.it()->image(),
 		];
 		
 		
@@ -130,6 +131,9 @@ class Settings extends Controller {
 		}
 		if (request()->hasFile('cart_img')) {
 			$data['cart_img'] = it()->upload('cart_img', 'setting');
+		}
+		if (request()->hasFile('mail_img')) {
+			$data['mail_img'] = it()->upload('mail_img', 'setting');
 		}
 		
 		if (request()->hasFile('experts_in_img')) {

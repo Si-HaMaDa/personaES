@@ -63,7 +63,8 @@ class Setting extends Model {
 		'free_lessons_img',
 		'our_clients_img',
 		'courses_img',
-
+		'mail_img',
+		
 		
 		
 		

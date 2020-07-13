@@ -117,7 +117,7 @@
 
     <!-- Header -->
 
-    <header style="background-image: url('{{it()->url(setting()->home_photo)}}')">
+    <header style="background-image: url('{{it()->url(setting()->mail_img)}}')">
         <div class="container">
             <div class="header-wrapper">
                 <h1>Persona international <br>confirms your <br> </b> <span style="color: #C71375">purchase</span> of ...</h1>

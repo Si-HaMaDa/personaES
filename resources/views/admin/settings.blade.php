@@ -284,6 +284,20 @@
                                 </div>
                             </div>
                             <br>
+
+                            
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('mail_img',trans('admin.mail_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('mail_img',['class'=>'form-control','placeholder'=>trans('admin.mail_img')]) !!}
+                                    @if(!empty(setting()->mail_img))
+                                    <img src="{{ it()->url(setting()->mail_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+
+
                         </div>
                         <div class="tab-pane fade" id="pills-event" role="tabpanel" aria-labelledby="pills-event-tab">
                             <div class="form-group col-md-12 col-lg-12">
@@ -334,6 +348,7 @@
                                 </div>
                             </div>
 
+                            
 
                             <div class="form-group">
                                 {!! Form::label('about_me_facebook',trans('admin.about_me_facebook'),['class'=>'col-md-3 control-label']) !!}
