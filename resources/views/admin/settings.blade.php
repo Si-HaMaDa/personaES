@@ -164,6 +164,20 @@
                                 </div>
                             </div>
                             <br>
+
+                                         
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('mail_img',trans('admin.mail_img'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('mail_img',['class'=>'form-control','placeholder'=>trans('admin.mail_img')]) !!}
+                                    @if(!empty(setting()->mail_img))
+                                    <img src="{{ it()->url(setting()->mail_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+
+                            
                             <div class="form-group col-md-6 col-lg-6">
                                 {!! Form::label('logo',trans('admin.logo'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">
@@ -285,17 +299,7 @@
                             </div>
                             <br>
 
-                            
-                            <div class="form-group col-md-12 col-lg-12">
-                                {!! Form::label('mail_img',trans('admin.mail_img'),['class'=>'col-md-3 control-label']) !!}
-                                <div class="col-md-9">
-                                    {!! Form::file('mail_img',['class'=>'form-control','placeholder'=>trans('admin.mail_img')]) !!}
-                                    @if(!empty(setting()->mail_img))
-                                    <img src="{{ it()->url(setting()->mail_img) }}" style="width:300px;height:150px" />
-                                    @endif
-                                </div>
-                            </div>
-                            <br>
+               
 
 
                         </div>
