@@ -277,7 +277,7 @@
                                                                 style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                                                 <div
                                                                     style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:20px;line-height:1.5;text-align:left;color:#ffffff;">
-                                                                    Lorem absum Lorem absum Lorem absum</div>
+                                                                    Our pleasure is serving you</div>
                                                             </td>
                                                         </tr>
                                                     </table>

@@ -154,10 +154,11 @@
           
 
 
-                <a href="{{url('/privacy-policy')}}">privacy policy</a> - <a href="{{url('/refund-policy')}}">Refund policy</a> - <a href="{{url('/legal-trademark')}}">lega trademark and copy rights</a> - <a href="{{url('/terms-use')}}">terms of use</a>
+                <a href="{{url('/privacy-policy')}}">privacy policy</a> - <a href="{{url('/refund-policy')}}">Refund policy</a> - <a href="{{url('/legal-trademark')}}">legal trademark and copy rights</a> - <a href="{{url('/terms-use')}}">terms of use</a>
             </p>
             {{-- <p><a href="{{url('privacy-policy')}}">privacy policy</a> & <a href="{{url('refund-policy')}}">refund policy</a> </p> --}}
-            <p>all right received 2020 <span><i class="far fa-heart"></i></span> scale team</p>
+            <p>All Right Reserved @ Persona International ,, Bowerd By <span><i class="far fa-heart"></i></span><a href="http://scale-e.com" style="    color: #707070;"> Scale team</a></p>
+             
         </div>
     </footer>
     

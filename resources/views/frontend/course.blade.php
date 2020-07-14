@@ -126,7 +126,7 @@
                         <a href="{{url('/register')."?type=courses&id=".$Course->id."&group_id=".$Group->id}}" class="register main-btn btn-hover">register now</a>
                     </div>
                     <div class="col-12">
-                        <p class="text-center" style="font-size: 20px"><span style="color: red; font-size: 1.2rem;">*</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et facilis </p>
+                        <p class="text-center" style="font-size: 20px"><span style="color: red; font-size: 1.2rem;">*</span> In case that the registered participants are less than {{$Group->attends}} the course will be postponed to a later date  </p>
                     </div>
                 </div>
             </section>
