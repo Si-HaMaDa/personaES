@@ -237,8 +237,10 @@
             <div class="col-lg-6">
                 <Section id="ourTestimonials" class="our-testimonials">
                     <h2 class="section-title mb-5"><span class="title">{{trans('admin.our_testimonials')}}</span></h2>
-                    <button class="main-btn btn-prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="main-btn btn-next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="nav-buttons">
+                        <button class="main-btn btn-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="main-btn btn-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                     <div class="our-testimonils-slider">
                       @foreach ($Testimonials as $Testimonial)
                           <article class="card">
