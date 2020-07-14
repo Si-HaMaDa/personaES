@@ -49,7 +49,7 @@ class ProductController extends Controller
              'title'=>'required',
              'img'=>'required|'.it()->image().'',
              'min_des'=>'required',
-             'note'=>'required',
+             'note'=>'nullable|sometimes',
              'des'=>'required',
              'piece_price'=>'required|numeric',
              'category_id'=>'required',
