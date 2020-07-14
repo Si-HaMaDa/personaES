@@ -95,9 +95,11 @@ class ProductController extends Controller
               if(request()->hasFile('pdf_files')){
                 $pdf_files = [];
                   foreach ($data['pdf_files'] as $key => $file) {
+                    if($file != "" && $file != null ){
                       $files = it()->upload($file,'product');
                       $pdf_files[$key]['url'] = $files['full_path'];
                       $pdf_files[$key]['name'] = $files['file_name'];
+                    }
                   }
                 $data['pdf_files'] = json_encode($pdf_files);
             }
