@@ -49,12 +49,12 @@ class CourseController extends Controller
             {
               $rules = [
                 'titel'=>'required|max:80',
-                'des'=>'required|max:500',
-                'mini_des'=>'required|max:255',
+                'des'=>'required|max:2000',
+                'mini_des'=>'required|max:500',
                 'price'=>'required|numeric|min:1',
                 'sessions'=>'required|numeric|min:1|max:20',
                 'duration_num'=>'required|numeric|min:1',
-                'duration_dis'=>'required|max:500',
+                'duration_dis'=>'required|max:2000',
                 'strat_at'=>'date|date_format:Y-m-d h:i:s|after:today',
                 'attends'=>'required|numeric|min:1|max:20',
                 'photo'=>'required|'.it()->image().'',
@@ -223,8 +223,8 @@ class CourseController extends Controller
             {
                 $rules = [
              'titel'=>'required|max:80',
-             'des'=>'required|max:500',
-             'mini_des'=>'required|max:255',
+             'des'=>'required|max:2000',
+             'mini_des'=>'required|max:500',
              'photo'=>''.it()->image().'',
 
                 ];
