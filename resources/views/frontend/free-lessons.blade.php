@@ -29,9 +29,11 @@
             <div class="row">
                 <div class="col-12">
                     <section class="free-lessons-carousel">
+                        @if ($FirstFreeLessons)
                         <iframe width="1440" height="601" src="{{getYoutubeEmbedUrl($FirstFreeLessons->v_url)}}" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
+                        @endif
                     </section>
                 </div>
                 <!-- All Lessons Section -->
