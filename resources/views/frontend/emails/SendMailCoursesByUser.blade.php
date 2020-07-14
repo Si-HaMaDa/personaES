@@ -27,7 +27,7 @@
             mso-table-lspace: 0pt;
             mso-table-rspace: 0pt;
         }
-
+  
         img {
             border: 0;
             height: auto;
