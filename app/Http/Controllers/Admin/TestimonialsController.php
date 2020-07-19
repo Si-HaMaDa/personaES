@@ -101,6 +101,8 @@ class TestimonialsController extends Controller
              */
             public function update($id)
             {
+
+                 
                 $rules = [
              'name'=>'required|string',
              'job'=>'required',
