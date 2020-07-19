@@ -99,7 +99,7 @@ class PartnersController extends Controller
             {
                 $rules = [
              'name'=>'',
-             'logo'=>'required|'.it()->image().'',
+             'logo'=>'sometimes|nullable|'.it()->image().'',
 
                          ];
              $data = $this->validate(request(),$rules,[],[

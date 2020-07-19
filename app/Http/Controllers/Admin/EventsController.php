@@ -108,7 +108,7 @@ class EventsController extends Controller
              'des'=>'required',
              'date'=>'required|date|date_format:d-m-Y|after:today',
              'time'=>'required',
-             'img'=>'required|'.it()->image().'',
+             'img'=>'sometimes|nullable|'.it()->image().'',
 
                          ];
              $data = $this->validate(request(),$rules,[],[

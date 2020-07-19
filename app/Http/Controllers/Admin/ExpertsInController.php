@@ -46,7 +46,7 @@ class ExpertsInController extends Controller
             {
               $rules = [
              'title'=>'required',
-             'description'=>'required',
+             'description'=>'sometimes|nullable',
              'photo'=>'required|'.it()->image().'',
 
                    ];
@@ -101,8 +101,8 @@ class ExpertsInController extends Controller
             {
                 $rules = [
              'title'=>'required',
-             'description'=>'required',
-             'photo'=>'required|'.it()->image().'',
+             'description'=>'sometimes|nullable',
+             'photo'=>'sometimes|nullable|'.it()->image().'',
 
                          ];
              $data = $this->validate(request(),$rules,[],[

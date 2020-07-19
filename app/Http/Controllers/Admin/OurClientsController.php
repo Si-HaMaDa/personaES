@@ -99,7 +99,7 @@ class OurClientsController extends Controller
             {
                 $rules = [
              'name'=>'sometimes|nullable|string',
-             'logo'=>'required|'.it()->image().'',
+             'logo'=>'sometimes|nullable|'.it()->image().'',
 
                          ];
              $data = $this->validate(request(),$rules,[],[
