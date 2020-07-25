@@ -225,7 +225,7 @@ class CourseController extends Controller
              'titel'=>'required|max:80',
              'des'=>'required|max:3000',
              'mini_des'=>'required|max:500',
-             'photo'=>''.it()->image().'',
+             'photo'=>'sometimes|nullable|'.it()->image().'',
 
                 ];
 

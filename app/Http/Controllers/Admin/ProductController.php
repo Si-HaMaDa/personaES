@@ -65,7 +65,7 @@ class ProductController extends Controller
              'title'=>trans('admin.title'),
              'img'=>trans('admin.img'),
              'min_des'=>trans('admin.min_des'),
-             'note'=>trans('admin.min_des'),
+             'note'=>trans('admin.note'),
              'des'=>trans('admin.des'),
              'piece_price'=>trans('admin.piece_price'),
              'category_id'=>trans('admin.category_id'),
@@ -149,7 +149,7 @@ class ProductController extends Controller
              'title'=>'required',
              'img'=>'nullable|sometimes|'.it()->image().'',
              'min_des'=>'required',
-             'note'=>'required',
+             'note'=>'nullable|sometimes',
 
              
              'des'=>'required',
@@ -169,7 +169,7 @@ class ProductController extends Controller
              'title'=>trans('admin.title'),
              'img'=>trans('admin.img'),
              'min_des'=>trans('admin.min_des'),
-             'note'=>trans('admin.min_des'),
+             'note'=>trans('admin.note'),
              'des'=>trans('admin.des'),
              'piece_price'=>trans('admin.piece_price'),
              'category_id'=>trans('admin.category_id'),

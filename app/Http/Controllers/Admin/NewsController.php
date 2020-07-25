@@ -47,7 +47,7 @@ class NewsController extends Controller
               $rules = [
              'titel'=>'required',
              'subject'=>'required',
-             'photo'=>''.it()->image().'',
+             'photo'=>'sometimes|nullable|'.it()->image().'',
 
                    ];
               $data = $this->validate(request(),$rules,[],[
@@ -102,7 +102,7 @@ class NewsController extends Controller
                 $rules = [
              'titel'=>'required',
              'subject'=>'required',
-             'photo'=>''.it()->image().'',
+             'photo'=>'sometimes|nullable|'.it()->image().'',
 
                          ];
              $data = $this->validate(request(),$rules,[],[
