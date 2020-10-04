@@ -103,12 +103,15 @@
 
                     <article class="card">
                         <section class="card-body">
-                            <h5 class="card-title">{{$Product->title}}</h5>
-                            <p class="card-text">{{$Product->min_des}}</p>
+                            
+                            <a href="{{url('product')}}/{{$RelatedProduct->id}}">
+                                <h5 class="card-title">{{$RelatedProduct->title}}</h5>
+                                <p class="card-text">{{$RelatedProduct->min_des}}</p>
+                            </a>
                         </section>
                         <section class="card-left-img">
-                            <img class="card-img" src="{{it()->url($Product->img)}}" alt="{{$Product->title}}">
-                            <span class="product-price">$ {{$Product->piece_price}}</span>
+                            <img class="card-img" src="{{it()->url($RelatedProduct->img)}}" alt="{{$RelatedProduct->title}}">
+                            <span class="product-price">$ {{$RelatedProduct->piece_price}}</span>
                         </section>
                     </article>
                     @empty

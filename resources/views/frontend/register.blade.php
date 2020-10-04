@@ -128,7 +128,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <fieldset>
+                {{-- <fieldset>
                     <div class="row">
                         <div class="col-12">
                             <legend>card info</legend>
@@ -183,16 +183,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <button id="confirmPaymentBtn" type="submit" class="main-btn btn-hover">confirm payment</button>
-                                    </div>
-                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-4 order-1 order-lg-2 card-container"></div> 
                     </div>
-                </fieldset>
+                </fieldset> --}}
+                <div class="col-12">
+                    <div class="form-group">
+                        <button id="confirmPaymentBtn" type="submit" class="main-btn btn-hover">confirm payment</button>
+                    </div>
+                </div>
                 <section class="payment-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="attention"
                     aria-hidden="true">
                     <section class="modal-dialog" role="document">

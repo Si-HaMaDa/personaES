@@ -36,11 +36,11 @@
 <div class="col-12">
     <nav aria-label="pagination" class="ml-auto">
         <ul class="pagination">
-            <li class="page-item {{ ($Products->currentPage() == 1) ? ' disabled' : '' }}">
+            {{-- <li class="page-item {{ ($Products->currentPage() == 1) ? ' disabled' : '' }}">
                 <a class="page-link" data-url="{{ $Products->url(1) }}" tabindex="-1" aria-disabled="true">
                     <i class="fas fa-angle-double-left"></i>
                 </a>
-            </li>
+            </li> --}}
         
             <li class="page-item {{ ($Products->currentPage() == 1) ? ' disabled' : '' }}">
                 <a href="#" data-url="{{ $Products->url(1) }}" class="a-link page-link">Previous</a>
@@ -53,11 +53,11 @@
             <li class="page-item {{ ($Products->currentPage() == $Products->lastPage()) ? ' disabled' : '' }}">
                 <a href="#" data-url="{{ $Products->url($Products->currentPage()+1) }}" class="a-link page-link">Next</a>
             </li>
-            <li class="page-item">
+            {{-- <li class="page-item">
                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
                     <i class="fas fa-angle-double-right"></i>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
 </div>

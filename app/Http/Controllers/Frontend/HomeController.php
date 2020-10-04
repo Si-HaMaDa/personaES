@@ -157,10 +157,10 @@ class HomeController extends Controller
             'city'=>'required',
             'country'=>'required',
             'address'=>'required',
-            'cardOwnerName'=>'required',
-            'cardNumber'=>'required|min:12',
-            'expireDate'=>'required',
-            'cvc'=>'required|min:5|numeric',
+            // 'cardOwnerName'=>'required',
+            // 'cardNumber'=>'required|min:12',
+            // 'expireDate'=>'required',
+            // 'cvc'=>'required|min:5|numeric',
 
             ];
             $data = $this->validate(request(),$rules,[],[
@@ -170,11 +170,12 @@ class HomeController extends Controller
             'city'=>trans('admin.city'),
             'country'=>trans('admin.country'),
             'address'=>trans('admin.address'),
-            'cardOwnerName'=>trans('admin.cardOwnerName'),
-            'cardNumber'=>trans('admin.cardNumber'),
-            'expireDate'=>trans('admin.expireDate'),
-            'cvc'=>trans('admin.cvc'),
+            // 'cardOwnerName'=>trans('admin.cardOwnerName'),
+            // 'cardNumber'=>trans('admin.cardNumber'),
+            // 'expireDate'=>trans('admin.expireDate'),
+            // 'cvc'=>trans('admin.cvc'),
         ]);
+
         if(request()->type == "courses"){
 
             // $Course = Course::findOrFail(request()->id);
@@ -217,6 +218,7 @@ class HomeController extends Controller
             }
 
         }else if(request()->type == "product"){
+            
             $Cart = Cart::where('ip' , $this->getUserIP() )->with('Product')->get();
             if($Cart->count() != 0){
                 foreach ($Cart as $key => $Cart) {
@@ -239,11 +241,14 @@ class HomeController extends Controller
                     $data['product'] = $Cart->Product;
                     $data['price'] = $Cart->price;
                     $data['count'] = $Cart->count;
-                    if($Cart->Product->type == "online"){
-                        Mail::to(request()->email)->send(new onlineProductThanks($data));
-                    }else if($Cart->Product->type == "shipping"){
-                        Mail::to(request()->email)->send(new shippingProductThanks($data));
-                    }
+
+                    // if($Cart->Product->type == "online"){
+                    //     Mail::to(request()->email)->send(new onlineProductThanks($data));
+                    // }else if($Cart->Product->type == "shipping"){
+                    //     Mail::to(request()->email)->send(new shippingProductThanks($data));
+                    // }
+            // dd(request()->all());
+
                 }
                 Cart::where('ip' , $this->getUserIP() )->delete();
             }
