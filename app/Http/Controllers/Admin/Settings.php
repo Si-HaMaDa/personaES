@@ -70,7 +70,8 @@ class Settings extends Controller {
 			'terms_of_use' => '',
 			'home_photo'=> 'sometimes|nullable|'.it()->image(),
 			'event_photo'=> 'sometimes|nullable|'.it()->image(),
-			'about_video'=> 'sometimes|nullable|'.it()->video(),
+			'about_video'=> 'sometimes|nullable|',
+			'product_video'=> 'sometimes|nullable|',
 			'our_courses_photo'=> 'sometimes|nullable|'.it()->image(),
 			'about_me_photo'=> 'sometimes|nullable|'.it()->image(),
 			'about_company_photo'=> 'sometimes|nullable|'.it()->image(),
@@ -118,6 +119,9 @@ class Settings extends Controller {
 		
 		if (request()->hasFile('about_video')) {
 			$data['about_video'] = it()->upload('about_video', 'setting');
+		}
+		if (request()->hasFile('product_video')) {
+			$data['product_video'] = it()->upload('product_video', 'setting');
 		}
 
 		if (request()->hasFile('about_me_photo')) {

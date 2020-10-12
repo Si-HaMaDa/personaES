@@ -66,6 +66,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="pills-our-clients-tab" data-toggle="pill" href="#pills-our-clients" role="tab" aria-controls="pills-our-clients" aria-selected="false">Our Clients</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-product-tab" data-toggle="pill" href="#pills-product" role="tab" aria-controls="pills-product" aria-selected="false">Product</a>
+                        </li>
                         
                     </ul>
                       <div class="tab-content" id="pills-tabContent">
@@ -574,6 +577,23 @@
                                     {!! Form::file('our_clients_img',['class'=>'form-control','placeholder'=>trans('admin.our_clients_img')]) !!}
                                     @if(!empty(setting()->our_clients_img))
                                      <img src="{{ it()->url(setting()->our_clients_img) }}" style="width:300px;height:150px" />
+                                    @endif
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </div>
+                        <div class="tab-pane fade" id="pills-product-video" role="tabpanel" aria-labelledby="pills-product-video-tab">
+                            <div class="form-group col-md-12 col-lg-12">
+                                {!! Form::label('product_video',trans('admin.product_video'),['class'=>'col-md-3 control-label']) !!}
+                                <div class="col-md-9">
+                                    {!! Form::file('product_video',['class'=>'form-control','placeholder'=>trans('admin.product_video')]) !!}
+                                    @if(!empty(setting()->product_video))
+                                    <video  width="320" height="240" controls >
+                                        <source src="{{it()->url(setting()->product_video)}}" type="video/mp4" >
+                                        Your browser does not support the HTML5 video.
+                                    </video>
+                                     {{-- <img src="{{ it()->url(setting()->product_video) }}" style="width:300px;height:150px" /> --}}
                                     @endif
                                 </div>
                             </div>

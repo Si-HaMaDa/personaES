@@ -64,6 +64,7 @@ class Setting extends Model {
 		'our_clients_img',
 		'courses_img',
 		'mail_img',
+		'product_video',
 		
 		
 		
