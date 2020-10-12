@@ -153,8 +153,12 @@ class Settings extends Controller {
 		}
 
 		Setting::orderBy('id', 'desc')->update($data);
-		session()->flash('success', trans('admin.updated'));
-		return redirect(aurl('settings'));
+
+		return response()->json([
+			'message' => 'تم الاضافه بنجاح'
+	], 200);
+		// session()->flash('success', trans('admin.updated'));
+		// return redirect(aurl('settings'));
 
 	}
 

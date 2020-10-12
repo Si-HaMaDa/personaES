@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row no-gutters d-none d-sm-flex">
                 @foreach ($clients as $client)
-                    <div class="col-sm-4 col-md-2">
+                    <div class="client-logo col-sm-4 col-md-1">
                         <img src="{{ it()->url($client->logo) }}" alt="{{$client->name}}">
                     </div>
                 @endforeach

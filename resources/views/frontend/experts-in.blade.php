@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row d-none d-sm-flex">
             @foreach ($Experts as $Expert)
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-lg-3">
                     <article class="card">
                         <img class="card-img-top" src="{{ it()->url($Expert->photo) }}" alt="{{$Expert->title}}">
                         <section class="card-body">

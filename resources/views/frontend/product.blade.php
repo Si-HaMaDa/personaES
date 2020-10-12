@@ -73,7 +73,7 @@
 
                 <!-- more product details section -->
 
-                <section class="col-md-7 product-more-details">
+                <section class="col-md-8 product-more-details">
                     <div class="row">
                         <div class="col-md-6">
                             <h3>Features of the Workplace Profile</h3>
@@ -97,7 +97,7 @@
 
                 <!-- related-products section -->
                 
-                <aside class="col-md-5 related-products">
+                <aside class="col-md-4 related-products">
                     <h3>related products</h3>
                     @forelse ($RelatedProducts as $RelatedProduct)
 

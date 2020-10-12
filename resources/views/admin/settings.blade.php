@@ -23,9 +23,10 @@
             </div>
             <div class="portlet-body form">
                 <div class="col-md-12">
-                    {!! Form::open(['url'=>aurl('/settings'),'id'=>'settings','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
+                    {!! Form::open(['url'=>aurl('/settings'),'id'=>'settings','files'=>true,'class'=>'form-horizontal form-row-seperated','id' => 'form_edit']) !!}
                     
-
+                    <div class="alert alert-danger display-hide"></div>
+                    <div class="alert alert-success display-hide"></div>
 
 
 
@@ -624,6 +625,20 @@
                     <br> --}}
                     <div class="form-actions">
                         <div class="row">
+                            <div class="progress" style="overflow: visible;">
+                                <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>                        
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit"  class="btn green btn-block">حفظ</button>
+                            </div>
+                            <div class="hidden spinner-load">
+                                <a href="#" class="load-more load-more--loading"></a>
+                            </div>
+                        </div>
+                        {{-- <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-offset-3 col-md-9">
@@ -631,7 +646,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     {!! Form::close() !!}
                 </div>
@@ -640,4 +655,108 @@
         </div>
     </div>
 </div>
+
+@push('js')
+
+<script>
+var formStore = $('#form_edit'),
+    loading = formStore.find('.spinner-load'),
+    submit = formStore.find(':submit');
+    
+    var error2 = $('.alert-danger');
+    var success2 = $('.alert-success');
+    // this is the id of the form
+    formStore.submit(function(e) {
+    
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+    console.log($('meta[name="csrf-token"]').attr('content'));
+    var formStore = $(this);
+console.log(formStore);
+    
+        var post_url = formStore.attr("action"); //get formStore action url
+        for (instance in CKEDITOR.instances) {
+            console.log(instance);
+            CKEDITOR.instances[instance].updateElement();
+        }
+        var request_method = formStore.attr("method"); //get form GET/POST method
+        setTimeout(() => {
+            var form_data =new FormData(this);
+            submit.parent().hide(200);
+            loading.removeClass('hidden');
+            $.ajax({
+                url : post_url,
+                type: request_method,
+                data : form_data,
+                processData: false,
+                contentType: false,
+                cache: false,
+                xhr: function() {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            console.log(percentComplete);
+                            $('.progress-bar').css("width", Math.round(percentComplete * 100)+'%').html('' + (Math.round(percentComplete * 100)) + '%');
+                        }
+                    }, false);
+                    return xhr;
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    submit.parent().show(500);
+                    loading.addClass('hidden');
+                    console.log(data);
+                    error2.hide(100);
+                    success2.hide(100);
+                    success2.html(`<button class="close" data-close="alert"></button> ${data.message}`)
+                    success2.show(100);
+                    App.scrollTo(success2, -200);
+
+                    $.each($('#form_edit input , #form_edit textarea'), function( e , element ) {
+                        var icon = $(element).parent('.input-icon').children('i');
+                        $(element).closest('.form-group').removeClass('has-error').removeClass('has-success'); // set success class to the control group
+                        icon.attr("data-original-title", null).tooltip({'container': 'body'});
+                        icon.removeClass("fa-warning").removeClass("fa-check");
+                    });
+                    $.each($('#form_edit input[type=file]'), function( e , element ) {
+                        console.log($(element));
+                        $(element).val(null);
+
+                    });
+                    
+                },
+                error: function (error) {
+                    submit.parent().show(500);
+                    loading.addClass('hidden');
+
+                    console.log(error.responseJSON);
+                    success2.hide(200);
+                    error2.empty();
+                    error2.append(`<button class="close" data-close="alert"></button>`)
+                    error2.show(200);
+                    App.scrollTo(error2, -200);
+                    if(error.responseJSON.errors){
+                        $.each(error.responseJSON.errors, function( index, value ) {
+                            error2.append(`<li>${value}</li>`)
+                            var index = index.split(".");
+                            var index = index[0]+'['+index[1]+']';
+                            console.log($('input[name="'+index+'"] , textarea[name="'+index+'"]') , value);
+                            var icon =$('input[name="'+index+'"] , textarea[name="'+index+'"]').parent('.input-icon').children('i');
+                            icon.removeClass('fa-check').addClass("fa-warning");  
+                            icon.attr("data-original-title", value).tooltip({'container': 'body'});
+                            $('input[name="'+index+'"] , textarea[name="'+index+'"]').closest('.form-group').removeClass("has-success").addClass('has-error'); // set error class to the control group   
+                        });
+                    }
+                }
+            });
+        }, 200);
+ 
+    
+});
+
+</script>
+@endpush
+
 @stop

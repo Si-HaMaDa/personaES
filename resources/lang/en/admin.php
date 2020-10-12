@@ -211,4 +211,5 @@ return
 	'our_courses' => 'Our Courses',
 	'latest_news' => 'Latest News',
 	'upcomming_events' => 'Upcomming Events',
+	'simple_events' => 'Simple Events',
 ];

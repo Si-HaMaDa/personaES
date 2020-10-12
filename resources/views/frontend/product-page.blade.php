@@ -13,7 +13,7 @@
                 Your browser does not support the HTML5 video.
             </video>
             <div class="header-wrapper">
-                <h1 class="section-title"><span class="title">disc products</span></h1>
+                <h1 class="section-title"><span class="title">d<span>i</span>sc&#174; products</span></h1>
             </div>
             <div class=" social-links">
                 <a class="facebook"  target="_blank" href="{{setting()->facebook}}"><i class="fab fa-facebook-f"></i></a>
