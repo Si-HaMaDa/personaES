@@ -31,7 +31,7 @@ class Settings extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-	dd($request->all());
+	dd($request->all(), request()->hasFile('about_video') , $request->about_video);
 		$rules = [
 			// 'sitename_ar'    => 'required',
 			'sitename_en'    => 'required',
