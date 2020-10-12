@@ -119,6 +119,7 @@ class Settings extends Controller {
 		
 		if (request()->hasFile('about_video') || $request->about_video != null ) {
 			$data['about_video'] = it()->upload('about_video', 'setting');
+			dd($data['about_video']);
 		}
 		if (request()->hasFile('product_video') || $request->about_video != null) {
 			$data['product_video'] = it()->upload('product_video', 'setting');
