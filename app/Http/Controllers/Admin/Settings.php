@@ -31,7 +31,7 @@ class Settings extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-	dd($request->all(), request()->hasFile('about_video') , $request->about_video);
+	// dd($request->all(), request()->hasFile('about_video') , $request->about_video);
 		$rules = [
 			// 'sitename_ar'    => 'required',
 			'sitename_en'    => 'required',
@@ -117,11 +117,10 @@ class Settings extends Controller {
 			$data['discover_me_photo'] = it()->upload('discover_me_photo', 'setting');
 		}
 		
-		if (request()->hasFile('about_video')) {
+		if (request()->hasFile('about_video') || $request->about_video != null ) {
 			$data['about_video'] = it()->upload('about_video', 'setting');
-			
 		}
-		if (request()->hasFile('product_video')) {
+		if (request()->hasFile('product_video') || $request->about_video != null) {
 			$data['product_video'] = it()->upload('product_video', 'setting');
 		}
 
