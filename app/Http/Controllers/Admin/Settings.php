@@ -117,13 +117,13 @@ class Settings extends Controller {
 			$data['discover_me_photo'] = it()->upload('discover_me_photo', 'setting');
 		}
 		
-		if (request()->hasFile('about_video') || $request->about_video != null ) {
+		if (request()->hasFile('about_video') || is_object($request->about_video) ) {
 			$data['about_video'] = it()->upload('about_video', 'setting');
 			// dd($data['about_video']);
 		}
-		if (request()->hasFile('product_video') || $request->about_video != null) {
-			$data['product_video'] = it()->upload('product_video', 'setting');
-		}
+		// if (request()->hasFile('product_video') || is_object($request->about_video)) {
+		// 	$data['product_video'] = it()->upload('product_video', 'setting');
+		// }
 
 		if (request()->hasFile('about_me_photo')) {
 			$data['about_me_photo'] = it()->upload('about_me_photo', 'setting');
