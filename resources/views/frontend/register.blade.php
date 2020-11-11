@@ -237,3 +237,205 @@
 
 
 @stop
+
+@section('js')
+
+<script src="https://cibpaynow.gateway.mastercard.com/checkout/version/54/checkout.js"
+		
+data-error="errorCallback"
+data-cancel="cancelCallback"
+data-complete="completeCallback">
+</script>
+
+
+<script>
+$(document).ready(function(){
+
+    const registerationFormSubmet = $('form#registerationForm');
+    registerationFormSubmet.submit(function(e) {
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        console.log($('meta[name="csrf-token"]').attr('content'));
+
+        
+        var form = $(this);
+
+        if(form.valid()){
+            Checkout.showLightbox();
+        }
+        // loading = form.find('.spinner-load'),
+        // submit = form.find(':submit');
+
+
+        // if(form.valid()){
+        //     var post_url = form.attr("action"); //get form action url
+        //     var request_method = form.attr("method"); //get form GET/POST method
+        //     var form_data =new FormData(this);
+
+        //     submit.parent().hide(200);
+        //     loading.removeClass('hidden');
+        //     $.ajax({
+        //         url : post_url,
+        //         type: request_method,
+        //         data : form_data,
+        //         processData: false,
+        //         contentType: false,
+        //         cache: false,
+        //         xhr: function() {
+        //             var xhr = new window.XMLHttpRequest();
+        //             xhr.upload.addEventListener("progress", function(evt) {
+        //                 if (evt.lengthComputable) {
+        //                     var percentComplete = evt.loaded / evt.total;
+        //                     console.log(percentComplete);
+        //                     $('.progress-bar').css("width", Math.round(percentComplete * 100)+'%').html('' + (Math.round(percentComplete * 100)) + '%');
+        //                 }
+        //             }, false);
+        //             return xhr;
+        //         },
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         },
+        //         success: function (data) {
+        //             submit.parent().show(500);
+        //             loading.addClass('hidden');
+        //             console.log(data);
+        //             // error2.hide(100);
+        //             // success2.hide(100);
+        //             // success2.html(`<button class="close" data-close="alert"></button> ${data.message}`)
+        //             // success2.show(100);
+        //             // App.scrollTo(success2, -200);
+        //             form[0].reset();
+        //             $('.g-items tr:not(".add")').remove();
+                    
+        //             $.each($('#brands_store input'), function( e , element ) {
+        //                 var icon = $(element).parent('.input-icon').children('i');
+        //                     $(element).closest('.form-group').removeClass('has-error').removeClass('has-success'); // set success class to the control group
+        //                     icon.attr("data-original-title", null).tooltip({'container': 'body'});
+        //                     icon.removeClass("fa-warning").removeClass("fa-check");
+        //             });
+
+        //             $.each($('#brands_store .fileinput-exists'), function( e , element ) {
+        //                 $(element).click();
+        //             });
+        //         },
+        //         error: function (error) {
+        //             submit.parent().show(500);
+        //             loading.addClass('hidden');
+        //             console.log(error.responseJSON);
+        //             success2.hide(200);
+        //             error2.show(200);
+        //             App.scrollTo(error2, -200);
+        //             error2.html(`<button class="close" data-close="alert"></button> ${error.responseJSON.message}`)
+        //             if(error.responseJSON.errors){
+        //                 $.each(error.responseJSON.errors, function( index, value ) {
+        //                     var icon =$('input[name='+index+']').parent('.input-icon').children('i');
+        //                     icon.removeClass('fa-check').addClass("fa-warning");  
+        //                     icon.attr("data-original-title", value).tooltip({'container': 'body'});
+        //                     $('input[name='+index+']').closest('.form-group').removeClass("has-success").addClass('has-error'); // set error class to the control group   
+        //                 });
+        //             }
+        //         }
+        //     });
+        // }else{
+        //     return false;
+        // }   
+
+    });
+});
+</script>
+<script type="text/javascript">
+
+
+
+
+    function errorCallback(error) {
+          console.log(JSON.stringify(error));
+    }
+    function cancelCallback() {
+          console.log('Payment cancelled');
+    }
+    function completeCallback(resultIndicator, sessionVersion) {
+        console.log(resultIndicator);
+        console.log(sessionVersion);
+    }
+
+
+function CREATE_CHECKOUT_SESSION() {
+
+    var sessionId = "";
+    var username = "merchant.TESTCIB229300";
+    var password = "8036f634fcd6a5ba6bc9c966ce3de8e3";
+    var orderId = "4564";
+
+        $.ajax({
+            type: 'POST',
+            crossDomain: true,
+            data: '{"apiOperation": "CREATE_CHECKOUT_SESSION", "interaction" :{"operation":"PURCHASE"}, "order":{"id":"'+orderId+'","currency":"EGP"} }',
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+
+            headers: {
+                'Authorization': 'Basic ' + btoa(username + ":" + password)
+            },
+            url: "https://cibpaynow.gateway.mastercard.com/api/rest/version/55/merchant/TESTCIB229300/session",
+            success: function (jsonData) {
+                sessionId = jsonData.session.id;
+                    console.log(jsonData);
+                return sessionId;
+            },
+            error: function (request, textStatus, errorThrown) {
+                return 0;
+            }
+        });
+
+}
+
+
+Checkout.configure({
+        merchant: 'TESTCIB229300',
+        order: {
+            amount: function() {
+            var chars = "0123456789",
+                length = 3;
+            var result = '';
+            for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+            console.log(result);                    
+            return result;
+        },
+            currency: 'EGP',
+             description: 'Order goods',
+            id:'4564'
+         },
+    interaction: {
+
+        operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation.
+
+        merchant: {
+
+            name: 'Test',
+
+            address: {
+
+                line1: 'Test',
+
+                line2: 'Test Street'
+
+            }
+
+        }
+
+    },
+
+
+    session: {
+
+          id: CREATE_CHECKOUT_SESSION()
+
+    }
+
+});
+
+</script>
+
+
+@stop

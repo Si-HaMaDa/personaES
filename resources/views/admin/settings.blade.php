@@ -583,7 +583,7 @@
                             <br>
                             
                         </div>
-                        <div class="tab-pane fade" id="pills-product-video" role="tabpanel" aria-labelledby="pills-product-video-tab">
+                        <div class="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-product-tab">
                             <div class="form-group col-md-12 col-lg-12">
                                 {!! Form::label('product_video',trans('admin.product_video'),['class'=>'col-md-3 control-label']) !!}
                                 <div class="col-md-9">

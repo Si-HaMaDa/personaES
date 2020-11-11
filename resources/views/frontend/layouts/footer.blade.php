@@ -247,6 +247,7 @@
             })
         </script>
     @endif
+    @yield('js')
 
 
     @stack('js')
